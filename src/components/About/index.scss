@@ -1,0 +1,93 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in-out forwards;
+
+    .carousel-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        .carousel-button {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .carousel-image {
+            width: auto;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+
+            &.carousel-image-fadeout {
+                opacity: 0;
+                animation: fadeOut 1s ease-in-out;
+            }
+
+            &.carousel-image-fadein {
+                opacity: 1;
+            }
+        }
+    }
+
+    .about-description {
+        color: #fff;
+        font-family: sans-serif;
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 1.5;
+
+        &::before {
+            content: '<p>';
+            font-family: 'La Belle Aurore';
+            color: #ffd700;
+            font-size: 18px;
+            position: relative;
+            left: -35px;
+            top: 45px;
+            opacity: 0.6;
+        }
+
+        &::after {
+            content: '</p>';
+            font-family: 'La Belle Aurore';
+            color: #ffd700;
+            font-size: 18px;
+            position: relative;
+            left: 100%;
+            top: -55px;
+            opacity: 0.6;
+            animation: fadeIn 1s 1.7s backwards;
+        }
+
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
