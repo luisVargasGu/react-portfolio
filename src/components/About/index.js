@@ -36,7 +36,7 @@ const About = () => {
                     alt={`Slide ${currentImageIndex + 1}`}
                     className={`carousel-image ${imageFadeClass}`} />
             </div>
-            <div class="about-description">
+            <div className="about-description">
                 <p>
                     Welcome to my portfolio! I'm a seasoned Full Stack Developer with 5-7 years of experience, specializing in the front-end.
                     Proficient in Java, Python, and Go. (Currently learning O🐫)
