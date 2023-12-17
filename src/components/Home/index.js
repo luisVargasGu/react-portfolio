@@ -2,6 +2,7 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 import logoTitle from '../../assets/images/logo-s.png';
+import Logo from './Logo';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
                 <h2>Full Stack Developer / Mobile Developer / Traveler / Fitness Enthusiast</h2>
                 <Link to='/contact' className='flat-button'>CONTACT ME</Link>
             </div>
+            <Logo />
         </div>
     );
 }
