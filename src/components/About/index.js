@@ -2,6 +2,7 @@ import './index.scss';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCss3, faGitAlt, faGolang, faHtml5, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons';
+import Carousel from '../Carousel';
 
 const About = () => {
     const carouselImages = [
@@ -16,17 +17,12 @@ const About = () => {
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [imageFadeClass, setImageFadeClass] = useState('carousel-image-fade');
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setImageFadeClass('carousel-image-fadeout');
-            setTimeout(() => {
-                setCurrentImageIndex((prevIndex) => {
-                    return prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1;
-                });
-                setImageFadeClass('carousel-image-fadein');
-            }, 500);
+            setCurrentImageIndex((prevIndex) => {
+                return prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1;
+            });
         }, 5000);
         return () => clearInterval(interval);
     });
@@ -35,9 +31,7 @@ const About = () => {
         <div className='about-container'>
             <div className='carousel-container'>
                 {/*TODO: Separate photos by size (width/height)*/}
-                <img src={carouselImages[currentImageIndex]}
-                    alt={`Slide ${currentImageIndex + 1}`}
-                    className={`carousel-image ${imageFadeClass}`} />
+                <Carousel imgSrc={carouselImages[currentImageIndex]} />
                 <div className='tech-stack-cube'>
                     <div className='cubespinner'>
                         <div className='face1'>
