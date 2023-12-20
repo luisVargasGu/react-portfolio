@@ -16,7 +16,7 @@ const Carousel = ({ imgSrc }) => {
         setImageFadeClass('carousel-image-fadein');
         setTimeout(() => {
             setImageFadeClass('carousel-image-fadeout');
-        }, 4500);
+        }, 4000);
     }, [imgSrc]);
 
     return (
