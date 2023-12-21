@@ -91,6 +91,12 @@
             }
         }
 
+        a.tech-link {
+            &:after {
+                content: 'PLAY';
+            }
+        }
+
         a.active {
             svg {
                 color: #ffd700;
