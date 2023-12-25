@@ -1,6 +1,24 @@
 import './index.scss';
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 
 const Contact = () => {
+    const form = useRef();
+    const position = [43.651070, -79.347015];
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_sqb3n6r', 'template_lypamj5', form.current, '8mXQBCUDW5SCGVbap')
+            .then(() => {
+                window.alert('Message sent successfully!');
+            }, (error) => {
+                window.alert('Message failed to send.');
+                console.log(error.text);
+            });
+    };
+
     return (
         <div className='container contact-page'>
             <div className='text-zone'>
@@ -12,7 +30,7 @@ const Contact = () => {
                     don't hesitate to reach out!
                 </p>
                 <div className='contact-form'>
-                    <form>
+                    <form ref={form} onSubmit={sendEmail}>
                         <ul>
                             <li className='half'>
                                 <input type='text' name='name' placeholder='Name' required>
@@ -35,6 +53,21 @@ const Contact = () => {
                         </ul>
                     </form>
                 </div>
+            </div>
+            <div className="map-wrap">
+                <div className="info-map">
+                    Luis Vargas,
+                    <br />
+                    Canada,
+                    <br />
+                    Toronto, ON<br />
+                    <br />
+                </div>
+                <MapContainer center={position} zoom={13}>
+                    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                    <Marker position={position}>
+                    </Marker>
+                </MapContainer>
             </div>
         </div>
     );
