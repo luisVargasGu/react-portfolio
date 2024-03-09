@@ -2,6 +2,7 @@ import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { register } from '../../../services/auth';
 import './index.scss'; // Import CSS file for Registration component
 
 const Registration = () => {
@@ -11,11 +12,17 @@ const Registration = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        // Add your registration logic here
-        console.log('Registering with:', { email, password });
-        // After registration, navigate back to Auth component
+        register(email, password).then(res => {
+            console.log(res);
+            localStorage.setItem('userID', res.UserID);
+        });
         navigate('/playground');
     };
+
+    const handleLogin = () => {
+        navigate('/playground');
+    }
+
 
     return (
         <div className='registration-container'>
@@ -39,7 +46,7 @@ const Registration = () => {
                 <input type="submit" value='Register' className='registration-button' />
             </form>
             <FontAwesomeIcon icon={faRightToBracket}
-                onClick={handleRegister}
+                onClick={handleLogin}
                 className='logo' />
         </div>
     );
