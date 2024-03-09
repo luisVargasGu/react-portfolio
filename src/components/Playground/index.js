@@ -1,10 +1,10 @@
-import Auth from './Auth';
+import { Outlet } from 'react-router-dom';
 import './index.scss';
 
 const Playground = () => {
     return (
         <div className='playground'>
-            <Auth />
+            <Outlet />
         </div>
     );
 }

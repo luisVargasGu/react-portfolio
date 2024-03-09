@@ -1,53 +1,49 @@
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../../services/auth';
-import './index.scss';
+import './index.scss'; // Import CSS file for Registration component
 
-const Auth = () => {
+const Registration = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
-        // Add your login logic here
-        login(email, password);
-        console.log('Logging in with:', { email, password });
+        // Add your registration logic here
+        console.log('Registering with:', { email, password });
+        // After registration, navigate back to Auth component
+        navigate('/playground');
     };
 
-    const handleRegister = () => {
-        navigate('register');
-    }
-
     return (
-        <div className='auth-container'>
-            <h1>Authentication</h1>
-            <form className='auth-form' onSubmit={handleLogin}>
+        <div className='registration-container'>
+            <h1>Registration</h1>
+            <form className='registration-form' onSubmit={handleRegister}>
                 <input
                     required
-                    className='auth-input'
+                    className='registration-input'
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                     required
-                    className='auth-input'
+                    className='registration-input'
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <input type="submit" value='Login' className='auth-button' />
+                <input type="submit" value='Register' className='registration-button' />
             </form>
-            <FontAwesomeIcon icon={faUserPlus}
+            <FontAwesomeIcon icon={faRightToBracket}
                 onClick={handleRegister}
-                className='logo register-icon register-button' />
+                className='logo' />
         </div>
     );
 };
 
-export default Auth;
+export default Registration;
 
