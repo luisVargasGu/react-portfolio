@@ -3,18 +3,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../../services/auth';
+import useSignIn from 'react-auth-kit/hooks/useSignIn';
+import { getCookie  } from '../../../services/http';
 import './index.scss';
 
 const Auth = () => {
     const navigate = useNavigate();
+    const singIn = useSignIn();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = (e) => {
         e.preventDefault();
-        // Add your login logic here
-        login(email, password);
-        console.log('Logging in with:', { email, password });
+        // TODO: add error handling
+        // TODO: add loading state
+        // TODO: move to service
+        login(email, password).then(res => {
+            singIn({
+                auth: {
+                    token: getCookie('jwt_token'),
+                    type: 'Bearer',
+                },
+                // TODO: configure refresh
+                userState: { email, userID: res.user_id}
+            });
+        });
     };
 
     const handleRegister = () => {
