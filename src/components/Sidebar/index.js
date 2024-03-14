@@ -1,12 +1,20 @@
 import './index.scss';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import LogoS from '../../assets/images/logo-s.png';
 import LogoSubstitle from '../../assets/images/logo_sub.png';
+import useSignOut from 'react-auth-kit/hooks/useSignOut';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faHome, faMicrochip, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faHome, faMicrochip, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { isLoggedIn, user } from '../../services/auth';
 
 const Sidebar = () => {
+    const signOut = useSignOut();
+    const signOutFunc = () => {
+        signOut();
+        user.value = null;
+    }
     return (
         <div className='nav-bar'>
             <Link className='logo' to="/">
@@ -14,6 +22,7 @@ const Sidebar = () => {
                 <img className="sub-logo" src={LogoSubstitle} alt="slobodan"></img>
             </Link>
             <nav>
+                {user.value && <p>{user.value.userID}</p>}
                 <NavLink exact="true" activeclassname="active" to="/">
                     <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
                 </NavLink>
@@ -28,6 +37,16 @@ const Sidebar = () => {
                 </NavLink>
             </nav>
             <ul>
+                {
+                    isLoggedIn.value ? (
+                        <li onClick={() => signOutFunc()}>
+                            <NavLink exact="true" className='logout-link' to="/playground">
+                                <FontAwesomeIcon icon={faRightFromBracket} color="#FFD700">
+                                </FontAwesomeIcon>
+                            </NavLink>
+                        </li>
+                    ) : null
+                }
                 <li>
                     <a
                         target="_blank"

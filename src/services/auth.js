@@ -1,5 +1,10 @@
 import axios from "axios";
 import { apiUrl } from "./environment";
+import { computed, signal } from "@preact/signals-react";
+
+export const user = signal(null);
+
+export const isLoggedIn = computed(() => !!user.value);
 
 export const login = async (email, password) => {
     try {

@@ -1,6 +1,6 @@
 import './index.scss';
 import emailjs from '@emailjs/browser';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 
 const Contact = () => {

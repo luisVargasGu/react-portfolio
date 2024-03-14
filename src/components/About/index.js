@@ -1,5 +1,5 @@
 import './index.scss';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCss3, faGitAlt, faGolang, faHtml5, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons';
 import Carousel from '../Carousel';

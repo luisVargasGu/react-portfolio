@@ -2,7 +2,7 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../../services/auth';
+import { login, user } from '../../../services/auth';
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import { getCookie  } from '../../../services/http';
 import './index.scss';
@@ -27,6 +27,8 @@ const Auth = () => {
                 // TODO: configure refresh
                 userState: { email, userID: res.user_id}
             });
+            navigate('/channel')
+            user.value = { email, userID: res.user_id};
         });
     };
 
