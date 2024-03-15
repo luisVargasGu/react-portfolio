@@ -22,10 +22,10 @@ function App() {
                     <Route index element={<Auth />} />
                     <Route path="register" element={<Registration />} />
                 </Route>
-                <Route element={<AuthOutlet fallbackPath='/playground' />}>
-                    <Route path="/channel" element={<Playground />}>
-                        <Route index element={<Channel />} />
-                    </Route>
+            </Route>
+            <Route path="/" element={<AuthOutlet fallbackPath='/playground' />}>
+                <Route path="/channel" element={<Playground />}>
+                    <Route index element={<Channel />} />
                 </Route>
             </Route>
         </Routes>

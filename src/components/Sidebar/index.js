@@ -22,7 +22,6 @@ const Sidebar = () => {
                 <img className="sub-logo" src={LogoSubstitle} alt="slobodan"></img>
             </Link>
             <nav>
-                {user.value && <p>{user.value.userID}</p>}
                 <NavLink exact="true" activeclassname="active" to="/">
                     <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
                 </NavLink>
