@@ -1,6 +1,6 @@
 import './index.scss';
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import LogoS from '../../assets/images/logo-s.png';
 import LogoSubstitle from '../../assets/images/logo_sub.png';
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
@@ -15,6 +15,10 @@ const Sidebar = () => {
         signOut();
         user.value = null;
     }
+
+    const location = useLocation();
+    const isOnExcludedRoutes = location.pathname === '/channel' || location.pathname === '/playground';
+
     return (
         <div className='nav-bar'>
             <Link className='logo' to="/">
@@ -31,7 +35,9 @@ const Sidebar = () => {
                 <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact">
                     <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" className="tech-link" to="/playground">
+                <NavLink exact="true" activeclassname="active"
+                    className={isOnExcludedRoutes ? 'tech-link active' : 'tech-link'}
+                    to={!isOnExcludedRoutes ? '/playground' : location.pathname }>
                     <FontAwesomeIcon icon={faMicrochip} color="#4d4d4e" />
                 </NavLink>
             </nav>
@@ -40,7 +46,7 @@ const Sidebar = () => {
                     isLoggedIn.value ? (
                         <li onClick={() => signOutFunc()}>
                             <NavLink exact="true" className='logout-link' to="/playground">
-                                <FontAwesomeIcon icon={faRightFromBracket} color="#FFD700">
+                                <FontAwesomeIcon icon={faRightFromBracket} color="#4d4d4e">
                                 </FontAwesomeIcon>
                             </NavLink>
                         </li>
