@@ -1,12 +1,20 @@
 import './index.scss';
 import React, { useState } from 'react';
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
+import { chat } from '../../../../services/chat';
+import Message from './message';
 
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const userData = useAuthUser();
+
+    // Handle incoming messages from WebSocket
+    chat.onmessage = ({ data }) => {
+        const newMessage = JSON.parse(data);
+        setMessages([...messages, newMessage]);
+    }
 
     const sendMessage = (e) => {
         e.preventDefault();
@@ -18,8 +26,7 @@ const Chat = () => {
             timestamp: new Date().toISOString()
         }
 
-        setMessages([...messages, newMessage]);
-
+        chat.send(JSON.stringify(newMessage));
         setInput('');
     }
 
@@ -28,10 +35,7 @@ const Chat = () => {
             <h1>Chat</h1>
             <div className='chat-box'>
                 {messages.map((message) => (
-                    <div key={message.id}>
-                        <p>{message.sender}: {message.text}</p>
-                        <span>{message.timestamp}</span>
-                    </div>
+                    <Message message={message} key={message.id} />
                 ))}
             </div>
             <div className='chat-input'>

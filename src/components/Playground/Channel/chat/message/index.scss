@@ -1,0 +1,45 @@
+.message-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #f0f0f0;
+    /* Slightly different shade */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+    .sender-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #3b5998;
+        /* Facebook blue */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .message-content {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+
+        p {
+            margin: 0;
+            word-wrap: break-word;
+        }
+
+        span {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+            margin-left: auto;
+        }
+    }
+
+}
