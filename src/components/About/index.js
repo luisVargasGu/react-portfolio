@@ -6,14 +6,14 @@ import Carousel from '../Carousel';
 
 const About = () => {
     const carouselImages = [
-        'http://localhost:8080/image?id=1',
-        'http://localhost:8080/image?id=2',
-        'http://localhost:8080/image?id=3',
-        'http://localhost:8080/image?id=4',
-        'http://localhost:8080/image?id=5',
-        'http://localhost:8080/image?id=6',
-        'http://localhost:8080/image?id=7',
-        'http://localhost:8080/image?id=8',
+        'http://localhost:8080/api/v1/image?id=1',
+        'http://localhost:8080/api/v1/image?id=2',
+        'http://localhost:8080/api/v1/image?id=3',
+        'http://localhost:8080/api/v1/image?id=4',
+        'http://localhost:8080/api/v1/image?id=5',
+        'http://localhost:8080/api/v1/image?id=6',
+        'http://localhost:8080/api/v1/image?id=7',
+        'http://localhost:8080/api/v1/image?id=8',
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
