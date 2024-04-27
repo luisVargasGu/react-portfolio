@@ -1,11 +1,18 @@
 import './index.scss';
-import emailjs from '@emailjs/browser';
 import React, { useRef } from 'react';
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import emailjs from '@emailjs/browser';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 
 const Contact = () => {
     const form = useRef();
     const position = [43.651070, -79.347015];
+    const defaultIcon = L.icon({
+        iconUrl: icon,
+        shadowUrl: iconShadow
+    })
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -65,7 +72,7 @@ const Contact = () => {
                 </div>
                 <MapContainer center={position} zoom={13}>
                     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                    <Marker position={position}>
+                    <Marker position={position} icon={defaultIcon}>
                     </Marker>
                 </MapContainer>
             </div>
