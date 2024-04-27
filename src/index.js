@@ -9,20 +9,18 @@ import createStore from 'react-auth-kit/createStore';
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 const store = createStore({
-    authName: 'jwt_token',
-    authType: 'cookie',
-    cookieDomain: window.location.hostname,
-    cookieSecure: window.location.protocol === 'http:',
+	authName: 'jwt_token',
+	authType: 'cookie',
+	cookieDomain: window.location.hostname,
+	cookieSecure: window.location.protocol === 'http:',
 });
 
 root.render(
-    <React.StrictMode>
-        <AuthProvider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </AuthProvider>
-    </React.StrictMode>
+	<AuthProvider store={store}>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
