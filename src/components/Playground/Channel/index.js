@@ -1,18 +1,18 @@
 import './index.scss';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Sidebar';
-import ChannelList from './channel-list';
 import Chat from './chat';
+import RoomList from './RoomList';
 
 const Channel = () => {
-    const [channel, setChannel] = useState('');
+    const [room, setRoom] = useState('');
 
     useEffect(() => {
-        console.log('Channel: ', channel);
-    }, [channel]);
+        console.log('Channel: ', room);
+    }, [room]);
 
-    const handleSetChannel = (channel) => {
-        setChannel(channel);
+    const handleSetRoom = (channel) => {
+        setRoom(channel);
     };
 
     return (
@@ -20,8 +20,8 @@ const Channel = () => {
             <div className='page'>
                 <Sidebar />
                 {
-                    channel === '' ? (
-                        <ChannelList setChannel={handleSetChannel} />
+                    room === '' ? (
+                        <RoomList setRoom={handleSetRoom} />
                     ) : (
                         <Chat />
                     )

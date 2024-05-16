@@ -59,7 +59,6 @@
             }
 
             &:after {
-                content: '';
                 font-size: 9px;
                 letter-spacing: 2px;
                 position: absolute;
@@ -70,11 +69,11 @@
                 opacity: 0;
                 transition: all 0.3s ease-out;
             }
+        }
 
-            &:first-child {
-                &::after {
-                    content: 'HOME';
-                }
+        a.home-link {
+            &:after {
+                content: 'HOME';
             }
         }
 
@@ -94,6 +93,12 @@
         a.tech-link {
             &:after {
                 content: 'PLAY';
+            }
+        }
+
+        a.channel-link {
+            &:after {
+                content: 'CHANNEL';
             }
         }
 
