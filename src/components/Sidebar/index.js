@@ -4,21 +4,23 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import LogoS from '../../assets/images/logo-s.png';
 import LogoSubstitle from '../../assets/images/logo_sub.png';
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
+import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { isLoggedIn, user } from '../../services/auth';
+import { isLoggedIn } from '../../services/auth';
 import NavBar from './Navbar';
 import ChannelList from './ChannelList';
 
 const Sidebar = () => {
+    const isAuthenticated = useIsAuthenticated();
     const signOut = useSignOut();
     const signOutFunc = () => {
         signOut();
-        user.value = null;
     }
     const location = useLocation();
-    const isOnExcludedRoutes = location.pathname === '/channel' || location.pathname === '/playground';
+    const isOnExcludedRoutes = location.pathname === '/playground/channel';
+    console.log('Sidebar', isOnExcludedRoutes);
 
     return (
         <div className='nav-bar'>
@@ -27,7 +29,7 @@ const Sidebar = () => {
                 <img className="sub-logo" src={LogoSubstitle} alt="slobodan"></img>
             </Link>
             {
-                (isOnExcludedRoutes && isLoggedIn.value)
+                (isOnExcludedRoutes && isAuthenticated)
                     ? (
                         <ChannelList />
                     ) : <NavBar />
