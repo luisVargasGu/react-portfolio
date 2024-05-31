@@ -18,19 +18,21 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
-                <Route path="/playground" element={<Playground />}>
+                <Route path="/playground" exact element={<Playground />}>
                     <Route index element={<Auth />} />
                     <Route path="register" element={<Registration />} />
                 </Route>
             </Route>
-            <Route path="/" element={<AuthOutlet fallbackPath='/playground' />}>
-                <Route path="/channel" element={<Playground />}>
+            <Route
+                path="/playground"
+                element={<AuthOutlet exact fallbackPath="/playground" />}
+            >
+                <Route path="/playground/channel" element={<Playground />}>
                     <Route index element={<Channel />} />
                 </Route>
             </Route>
         </Routes>
-    );
+    )
 }
 
-export default App;
-
+export default App
