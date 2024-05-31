@@ -27,7 +27,7 @@ const Auth = () => {
                 // TODO: configure refresh
                 userState: { email, userID: res.user_id}
             });
-            navigate('/channel')
+            navigate('/playground/channel')
             user.value = { email, userID: res.user_id};
         });
     };
