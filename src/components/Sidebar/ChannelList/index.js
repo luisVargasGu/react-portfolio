@@ -1,42 +1,42 @@
-import React,{ useEffect }  from 'react';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { updateSelectedChannel, fetchChannels } from '../../../store/channels/channels.actions';
 
-const ChannelList = () => {
-    // const dispatch = useDispatch();
-    // const { channels } = useSelector((state) => {
-    //     console.log('testing:', state);
-    //     return state;
-    // });
-
-    // const handleChannelClick = (channelId) => {
-    //     dispatch(updateSelectedChannel(channelId));
-    // }
+const ChannelList = ({ channels, fetchChannels }) => {
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('ChannelList');
-    });
+        fetchChannels();
+    }, [fetchChannels]);
 
-    const channels = [];
+    const handleChannelClick = (channelId) => {
+        dispatch(updateSelectedChannel(channelId));
+    }
+
     return (
         <nav>
-            {channels ? (channels.map((channel) => (
+            {channels.map((channel) => (
                 <NavLink
                     key={channel.ID}
                     exact="true"
                     activeclassname="active"
                     className="channel-link"
-                    onClick={() => (channel.ID)}>
+                    onClick={() => handleChannelClick(channel.ID)}>
                     <h3>{channel.ID}</h3>
                 </NavLink>
-            ))
-            ) : (
-                <h3>No channels</h3>
-            )}
+            ))}
         </nav>
 
     );
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
+const mapStateToProps = (state) => ({
+    channels: state.channels,
+});
 
-export default ChannelList;
+const mapDispatchToProps = {
+    fetchChannels,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
