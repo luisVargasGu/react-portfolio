@@ -1,34 +1,26 @@
-import './index.scss';
-import React, { useEffect, useState } from 'react';
-import Sidebar from '../../Sidebar';
-import Chat from './chat';
-import RoomList from './RoomList';
+import './index.scss'
+import React, { useEffect, useState } from 'react'
+import Sidebar from '../../Sidebar'
+import Chat from './chat'
+import RoomList from '../RoomList'
+import { connect } from 'react-redux'
 
-const Channel = () => {
-    const [room, setRoom] = useState('');
-
-    useEffect(() => {
-        console.log('Channel: ', room);
-    }, [room]);
-
-    const handleSetRoom = (channel) => {
-        setRoom(channel);
-    };
-
+const Channel = ({ selectedChannel, selectedRoom }) => {
+    console.log('Channel', selectedChannel, selectedRoom)
     return (
-        <div className='channel'>
-            <div className='page'>
+        <div className="channel">
+            <div className="page">
                 <Sidebar />
-                {
-                    room === '' ? (
-                        <RoomList setRoom={handleSetRoom} />
-                    ) : (
-                        <Chat />
-                    )
-                }
+                {selectedChannel ? <RoomList /> : null}
+                {selectedRoom ? <Chat /> : null}
             </div>
         </div>
-    );
+    )
 }
 
-export default Channel;
+const mapStateToProps = (state) => ({
+    selectedChannel: state.channels.selectedChannelId,
+    selectedRoom: state.rooms.selectedRoomId,
+})
+
+export default connect(mapStateToProps)(Channel)
