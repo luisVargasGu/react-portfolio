@@ -1,20 +1,49 @@
-import React from 'react';
-import './index.scss';
+import React, { useEffect } from 'react'
+import './index.scss'
+import {
+    fetchRooms,
+    updateSelectedRoom,
+} from '../../../store/rooms/rooms.actions'
+import { connect, useDispatch } from 'react-redux'
 
-const RoomList = ({ rooms }) => {
+const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (selectedChannel) {
+            fetchRooms(selectedChannel)
+        }
+    }, [fetchRooms, selectedChannel])
+
+    const handleRoomClick= (roomId) => {
+        dispatch(updateSelectedRoom(roomId));
+    }
+
+
     return (
-        <div className='room-list'>
+        <div className="room-list">
             <ul>
-                {rooms?.map(room => (
-                    <li key={room.id} className='room-item'>
-                        <div className='room-icon'>{room.icon}</div>
-                        <span className='room-label'>{room.name}</span>
+                {rooms?.rooms?.map((room) => (
+                    <li
+                    key={room.ID}
+                    onClick={() => handleRoomClick(room.ID)}
+                    className="room-item">
+                        <div className="room-icon">{room.icon}</div>
+                        <span className="room-label">{room.name}</span>
                     </li>
                 ))}
             </ul>
         </div>
-    );
-};
+    )
+}
 
-export default RoomList;
+const mapStateToProps = (state) => ({
+    rooms: state.rooms,
+    selectedChannel: state.channels.selectedChannelId,
+})
 
+const mapDispatchToProps = {
+    fetchRooms,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoomList)
