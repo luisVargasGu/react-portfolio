@@ -8,7 +8,6 @@ import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { isLoggedIn } from '../../services/auth';
 import NavBar from './Navbar';
 import ChannelList from './ChannelList';
 
@@ -20,7 +19,6 @@ const Sidebar = () => {
     }
     const location = useLocation();
     const isOnExcludedRoutes = location.pathname === '/playground/channel';
-    console.log('Sidebar', isOnExcludedRoutes);
 
     return (
         <div className='nav-bar'>
@@ -36,7 +34,7 @@ const Sidebar = () => {
             }
             <ul>
                 {
-                    isLoggedIn.value ? (
+                    isAuthenticated() ? (
                         <li onClick={() => signOutFunc()}>
                             <NavLink exact="true" className='logout-link' to="/playground">
                                 <FontAwesomeIcon icon={faRightFromBracket} color="#4d4d4e">

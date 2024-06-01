@@ -16,7 +16,7 @@ const ChannelList = ({ channels, fetchChannels }) => {
 
     return (
         <nav>
-            {channels.map((channel) => (
+            {channels?.channels?.map((channel) => (
                 <NavLink
                     key={channel.ID}
                     exact="true"
