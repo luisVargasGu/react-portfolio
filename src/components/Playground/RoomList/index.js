@@ -7,7 +7,7 @@ import {
 import { connect, useDispatch } from 'react-redux'
 
 const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (selectedChannel) {
@@ -15,19 +15,19 @@ const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
         }
     }, [fetchRooms, selectedChannel])
 
-    const handleRoomClick= (roomId) => {
-        dispatch(updateSelectedRoom(roomId));
+    const handleRoomClick = (roomId) => {
+        dispatch(updateSelectedRoom(roomId))
     }
-
 
     return (
         <div className="room-list">
             <ul>
                 {rooms?.rooms?.map((room) => (
                     <li
-                    key={room.ID}
-                    onClick={() => handleRoomClick(room.ID)}
-                    className="room-item">
+                        key={room.id}
+                        onClick={() => handleRoomClick(room.id)}
+                        className={`room-item${rooms.selectedRoomId === room.id ? 'active ' : ''}`}
+                    >
                         <div className="room-icon">{room.icon}</div>
                         <span className="room-label">{room.name}</span>
                     </li>

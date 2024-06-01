@@ -1,4 +1,5 @@
 .room-list {
+    margin-left: 60px;
     background-color: #2f3136;
     padding: 10px;
     border-radius: 8px;
@@ -24,6 +25,11 @@
                 background-color: #40444b;
             }
 
+            &.active {
+                background-color: #7289da;
+                color: #ffd700;
+            }
+
             .room-icon {
                 width: 32px;
                 height: 32px;
@@ -44,6 +50,7 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
+
         }
     }
 }

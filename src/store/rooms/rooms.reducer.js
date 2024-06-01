@@ -23,7 +23,7 @@ const roomReducer = (state = initialState, action) => {
         case FETCH_ROOMS_SUCCES:
             return {
                 ...state,
-                room: action.payload,
+                rooms: action.payload,
                 loading: false,
                 error: null,
             }
