@@ -11,6 +11,7 @@ export const disconnectWebSocket = () => {
     if (socket) {
         socket.close();
     }
+    socket = null;
 };
 
 export const sendWebSocketMessage = (message) => {
