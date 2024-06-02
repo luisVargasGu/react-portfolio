@@ -26,7 +26,7 @@ const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
                     <li
                         key={room.id}
                         onClick={() => handleRoomClick(room.id)}
-                        className={`room-item${rooms.selectedRoomId === room.id ? 'active ' : ''}`}
+                        className={`${rooms.selectedRoomId === room.id ? 'active room-item' : 'room-item'}`}
                     >
                         <div className="room-icon">{room.icon}</div>
                         <span className="room-label">{room.name}</span>
