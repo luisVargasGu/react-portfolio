@@ -1,5 +1,5 @@
 import './index.scss'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Sidebar from '../../Sidebar'
 import Chat from './chat'
 import RoomList from '../RoomList'
