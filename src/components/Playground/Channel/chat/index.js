@@ -2,7 +2,7 @@ import './index.scss';
 import React, { useEffect, useState } from 'react';
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
 import { sendWebSocketMessage } from '../../../../services/chat';
-import Message from './message';
+import Message from './Message';
 import { useDispatch, useSelector } from 'react-redux';
 import { switchRoomAndFetchMessages } from '../../../../store/messages/messages.actions';
 
