@@ -1,63 +1,62 @@
 import './index.scss';
 import React, { useEffect, useState } from 'react';
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
-import { connectWebSocket, sendWebSocketMessage } from '../../../../services/chat';
+import { sendWebSocketMessage } from '../../../../services/chat';
 import Message from './message';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { switchRoomAndFetchMessages } from '../../../../store/messages/messages.actions';
 
 const Chat = () => {
-	const [messages, setMessages] = useState([]);
-	const [input, setInput] = useState('');
-	const userData = useAuthUser();
+    const [input, setInput] = useState('');
+    const dispatch = useDispatch();
+    const userData = useAuthUser();
+    const currentRoomId = useSelector(state => state.rooms.selectedRoomId);
+    const currentChannelId = useSelector(state => state.channels.selectedChannelId);
+    const messages = useSelector(state => state.messages.rooms[currentRoomId] || []);
 
-	useEffect(() => {
-		const chat = connectWebSocket('channels/1/room/1/messages');
 
-		chat.onmessage = ({ data }) => {
-			const newMessage = JSON.parse(data);
-			setMessages(prevMessages => [...prevMessages, newMessage]);
-		};
+    useEffect(() => {
+        if (currentRoomId) {
+            dispatch(switchRoomAndFetchMessages(currentRoomId, currentChannelId));
+        }
+    }, [currentRoomId, currentChannelId, dispatch]);
 
-		return () => {
-			chat.close();
-		};
-	}, []);
+    const sendMessage = (e) => {
+        e.preventDefault();
+        if (input.trim() === '') return;
+        const newMessage = {
+            id: messages.length + 1,
+            content: input,
+            sender_id: userData.userID,
+            room_id: currentRoomId,
+            timestamp: new Date().toISOString()
+        }
 
-	const sendMessage = (e) => {
-		e.preventDefault();
-		if (input.trim() === '') return;
-		const newMessage = {
-			id: messages.length + 1,
-			text: input,
-			sender: userData.userID,
-			timestamp: new Date().toISOString()
-		}
+        sendWebSocketMessage(newMessage);
+        setInput('');
+    }
 
-		sendWebSocketMessage(newMessage);
-		setInput('');
-	}
-
-	return (
-		<div className='chat'>
-			<h1>Chat</h1>
-			<div className='chat-box'>
-				{messages.map((message) => (
-					<Message message={message} key={message.id} />
-				))}
-			</div>
-			<div className='chat-input'>
-				<form onSubmit={sendMessage}>
-					<input
-						type='text'
-						value={input}
-						onChange={(e) => setInput(e.target.value)}
-						placeholder='Type your message...'
-					/>
-				</form>
-				<button onClick={sendMessage}>Send</button>
-			</div>
-		</div>
-	);
+    return (
+        <div className='chat'>
+            <h1>Chat</h1>
+            <div className='chat-box'>
+                {messages.map((message) => (
+                    <Message message={message} key={message.id} />
+                ))}
+            </div>
+            <div className='chat-input'>
+                <form onSubmit={sendMessage}>
+                    <input
+                        type='text'
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        placeholder='Type your message...'
+                    />
+                </form>
+                <button onClick={sendMessage}>Send</button>
+            </div>
+        </div>
+    );
 }
 
 export default Chat;
