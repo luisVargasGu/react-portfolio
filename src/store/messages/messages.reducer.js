@@ -6,7 +6,6 @@ import {
 } from './messages.actions'
 
 const initialState = {
-    currentRoomId: null,
     rooms: {},
     loading: false,
     error: null,
@@ -17,7 +16,6 @@ const messagesReducer = (state = initialState, action) => {
         case SWITCH_ROOM:
             return {
                 ...state,
-                currentRoomId: action.payload,
                 loading: true,
                 error: null,
             }
