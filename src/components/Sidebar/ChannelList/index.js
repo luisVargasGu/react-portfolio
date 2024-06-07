@@ -1,15 +1,18 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect, useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import {
     updateSelectedChannel,
     fetchChannels,
+    createChannel,
 } from '../../../store/channels/channels.actions'
+import CreateChannelModal from './CreateChannelModal'
 
 const ChannelList = ({ channels, fetchChannels }) => {
     const dispatch = useDispatch()
+    const [show, setShow] = useState(false)
+    const [channelName, setChannelName] = useState('')
 
     useEffect(() => {
         fetchChannels()
@@ -20,27 +23,45 @@ const ChannelList = ({ channels, fetchChannels }) => {
     }
 
     const addChannel = () => {
-        console.log('add channel')
-    }
+        setShow(true);
+    };
+
+    const handleSubmit = () => {
+        setChannelName('')
+        dispatch(createChannel({ name: channelName }))
+        setShow(false)
+    };
 
     return (
-        <nav>
-            <button className="channel-link" onClick={() => addChannel()}>
-                <h3>
-                    <FontAwesomeIcon icon={faPlus} color="#fff" />
-                </h3>
-            </button>
-            {channels?.channels.map((channel) => (
-                <button
-                    key={channel.ID}
-                    className={`channel-link ${channels.selectedChannelId === channel.ID ? 'active' : ''}`}
-                    onClick={() => handleChannelClick(channel.ID)}
-                >
-                    <h3>{channel.ID}</h3>
+        <div>
+            <nav>
+                <button className="channel-link add-channel-button" onClick={addChannel}>
+                    <h3>
+                        <FontAwesomeIcon icon={faPlus} color="#fff" />
+                    </h3>
                 </button>
-            ))}
-        </nav>
-    )
+                {channels?.channels.map((channel) => (
+                    <button
+                        key={channel.id}
+                        className={`channel-link ${channels.selectedChannelId === channel.id ? 'active' : ''}`}
+                        onClick={() => handleChannelClick(channel.id)}
+                    >
+                        <h3>{channel.id}</h3>
+                    </button>
+                ))}
+            </nav>
+            <CreateChannelModal show={show} handleClose={() => setShow(false)}>
+                <label>Channel Name</label>
+                <input
+                    type="text"
+                    placeholder="Channel Name"
+                    value={channelName}
+                    onChange={(e) => setChannelName(e.target.value)}
+                />
+                <button onClick={handleSubmit}>Submit</button>
+            </CreateChannelModal>
+        </div>
+    );
 }
 
 const mapStateToProps = (state) => ({
