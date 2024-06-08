@@ -70,9 +70,12 @@ const roomReducer = (state = initialState, action) => {
                 error: null,
             }
         case DELETE_ROOM_SUCCESS:
+            const selectedRoomId =
+                state.selectedRoomId === action.payload ? null : state.selectedRoomId
             return {
                 ...state,
                 rooms: state.rooms.filter((room) => room.id !== action.payload),
+                selectedRoomId,
                 loading: false,
                 error: null,
             }

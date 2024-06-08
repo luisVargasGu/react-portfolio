@@ -84,7 +84,7 @@ export const createRoom = (room) => {
                 withCredentials: true
             });
             const data = response.data;
-            dispatch(createRoomSuccess(data.rooms));
+            dispatch(createRoomSuccess(data));
         } catch (error) {
             dispatch(createRoomFailure(error.message));
         }
@@ -95,11 +95,10 @@ export const deleteRoom = (roomID) => {
     return async (dispatch) => {
         dispatch(deleteRoomRequest());
         try {
-            const response = await axios.delete(apiUrl + `rooms/${roomID}`, {
+            await axios.delete(apiUrl + `rooms/${roomID}`, {
                 withCredentials: true
             });
-            const data = response.data;
-            dispatch(deleteRoomSuccess(data.rooms));
+            dispatch(deleteRoomSuccess(roomID));
         } catch (error) {
             dispatch(deleteRoomFailure(error.message));
         }
