@@ -1,3 +1,4 @@
+import { disconnectWebSocket } from '../../services/chat'
 import {
     CREATE_ROOM_FAILURE,
     CREATE_ROOM_REQUEST,
@@ -72,6 +73,9 @@ const roomReducer = (state = initialState, action) => {
         case DELETE_ROOM_SUCCESS:
             const selectedRoomId =
                 state.selectedRoomId === action.payload ? null : state.selectedRoomId
+            if (selectedRoomId === null) {
+                disconnectWebSocket()
+            }
             return {
                 ...state,
                 rooms: state.rooms.filter((room) => room.id !== action.payload),
