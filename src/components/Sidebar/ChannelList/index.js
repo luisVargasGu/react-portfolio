@@ -7,7 +7,8 @@ import {
     fetchChannels,
     createChannel,
 } from '../../../store/channels/channels.actions'
-import CreateChannelModal from './CreateChannelModal'
+import { updateSelectedRoom } from '../../../store/rooms/rooms.actions'
+import CreateChannelModal from './Modal'
 
 const ChannelList = ({ channels, fetchChannels }) => {
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ const ChannelList = ({ channels, fetchChannels }) => {
 
     const handleChannelClick = (channelId) => {
         dispatch(updateSelectedChannel(channelId))
+        dispatch(updateSelectedRoom(null));
     }
 
     const addChannel = () => {
@@ -50,7 +52,7 @@ const ChannelList = ({ channels, fetchChannels }) => {
                     </button>
                 ))}
             </nav>
-            <CreateChannelModal show={show} handleClose={() => setShow(false)}>
+            <CreateChannelModal title="Create Channel" show={show} handleClose={() => setShow(false)}>
                 <label>Channel Name</label>
                 <input
                     type="text"
