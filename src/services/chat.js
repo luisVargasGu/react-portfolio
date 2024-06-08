@@ -9,7 +9,7 @@ export const connectWebSocket = (target) => {
 
 export const disconnectWebSocket = () => {
     if (socket) {
-        socket.close();
+        socket.close(1000, 'User disconnected');
     }
     socket = null;
 };
