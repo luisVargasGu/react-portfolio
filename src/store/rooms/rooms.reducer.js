@@ -1,4 +1,10 @@
 import {
+    CREATE_ROOM_FAILURE,
+    CREATE_ROOM_REQUEST,
+    CREATE_ROOM_SUCCESS,
+    DELETE_ROOM_FAILURE,
+    DELETE_ROOM_REQUEST,
+    DELETE_ROOM_SUCCESS,
     FETCH_ROOMS_FAILURE,
     FETCH_ROOMS_REQUEST,
     FETCH_ROOMS_SUCCES,
@@ -37,6 +43,44 @@ const roomReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedRoomId: action.payload,
+            }
+        case CREATE_ROOM_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            }
+        case CREATE_ROOM_SUCCESS:
+            return {
+                ...state,
+                rooms: [...state.rooms, action.payload],
+                loading: false,
+                error: null,
+            }
+        case CREATE_ROOM_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            }
+        case DELETE_ROOM_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            }
+        case DELETE_ROOM_SUCCESS:
+            return {
+                ...state,
+                rooms: state.rooms.filter((room) => room.id !== action.payload),
+                loading: false,
+                error: null,
+            }
+        case DELETE_ROOM_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
             }
         default:
             return state
