@@ -1,10 +1,58 @@
+.d-none {
+    display: none;
+}
+
 .room-list {
     margin-left: 60px;
     background-color: #2f3136;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
     width: 250px;
     color: #fff;
+
+    .delete-button {
+        background-color: #ff4d4d;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:hover {
+            background-color: #ff3333;
+        }
+    }
+
+    .spacer {
+        height: 1px;
+        background-color: #666;
+        margin: 8px 10px;
+    }
+
+    .add-room-container {
+        margin: auto 0px 10px 0px;
+        display: flex;
+
+        button {
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+
+
+            &:hover {
+                background-color: #555;
+
+            }
+        }
+    }
 
     ul {
         list-style: none;
@@ -44,10 +92,22 @@
 
             .room-label {
                 font-size: 16px;
-                color: #b9bbbe;
+                color: #fff;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+            }
+
+            .delete-icon {
+                margin-left: auto;
+                font-size: 16px;
+                color: #ff4d4d;
+                cursor: pointer;
+
+
+                &:hover {
+                    color: #ff3333;
+                }
             }
 
         }
