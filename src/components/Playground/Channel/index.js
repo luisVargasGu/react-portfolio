@@ -6,7 +6,6 @@ import RoomList from '../RoomList'
 import { connect } from 'react-redux'
 
 const Channel = ({ selectedChannel, selectedRoom }) => {
-    console.log('Channel', selectedChannel, selectedRoom)
     return (
         <div className="channel">
             <div className="page">
