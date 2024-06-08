@@ -5,7 +5,10 @@ import {
     UPDATE_SELECTED_CHANNEL,
     CREATE_CHANNEL_FAILURE,
     CREATE_CHANNEL_SUCCESS,
-    CREATE_CHANNEL_REQUEST
+    CREATE_CHANNEL_REQUEST,
+    DELETE_CHANNEL_FAILURE,
+    DELETE_CHANNEL_SUCCESS,
+    DELETE_CHANNEL_REQUEST
 } from './channels.actions';
 
 const initialState = {
@@ -55,6 +58,25 @@ const channelReducer = (state = initialState, action) => {
                 error: null
             };
         case CREATE_CHANNEL_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            };
+        case DELETE_CHANNEL_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null
+            };
+        case DELETE_CHANNEL_SUCCESS:
+            return {
+                ...state,
+                channels: state.channels.filter(channel => channel.id !== action.payload),
+                loading: false,
+                error: null
+            };
+        case DELETE_CHANNEL_FAILURE:
             return {
                 ...state,
                 loading: false,
