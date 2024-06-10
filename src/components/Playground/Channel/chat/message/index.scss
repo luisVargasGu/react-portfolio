@@ -41,8 +41,11 @@
         position: relative;
         min-height: 60px;
         flex-direction: column;
-        justify-content: space-between;
         flex: 1;
+
+        h4 {
+            margin: 0;
+        }
 
         p {
             margin: 0;

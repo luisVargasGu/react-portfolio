@@ -28,6 +28,7 @@ const Message = ({ message }) => {
                 }
             </div>
             <div className="message-content">
+                <h4>{message.sender_name}</h4>
                 <p>{message.content}</p>
                 <span>{timeDifference}</span>
             </div>
