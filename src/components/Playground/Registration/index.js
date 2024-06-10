@@ -1,20 +1,28 @@
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../../../services/auth';
+import { getCookie } from '../../../services/http';
 import './index.scss'; // Import CSS file for Registration component
 
 const Registration = () => {
     const navigate = useNavigate();
+    const singIn = useSignIn();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleRegister = (e) => {
         e.preventDefault();
         register(email, password).then(res => {
-            console.log(res);
-            localStorage.setItem('userID', res.UserID);
+            singIn({
+                auth: {
+                    token: getCookie('jwt_token'),
+                },
+                // TODO: configure refresh
+                userState: { email, userID: res.user_id, avatar: res.avatar }
+            });
         });
         navigate('/playground');
     };
