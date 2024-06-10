@@ -17,7 +17,16 @@ const Message = ({ message }) => {
 
     return (
         <div className="message-box" key={message.id}>
-            <div className="sender-circle">{message.sender}</div>
+            <div className="sender-circle">
+                {!message.sender_avatar ?
+                    (
+                        <div className="default-avatar">
+                            <span>N/A</span>
+                        </div>
+                    ) :
+                    (<img src={'data:image/png;base64,' + message.sender_avatar} alt="User-Avatar" />)
+                }
+            </div>
             <div className="message-content">
                 <p>{message.content}</p>
                 <span>{timeDifference}</span>
