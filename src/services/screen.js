@@ -1,8 +1,10 @@
 import { markMessageAsSeen } from '../store/messages/messages.actions'
 import { useEffect, useRef } from 'react'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
 
-const useMessageObserver = (messageId, root, threshold = 0.1) => {
+const useMessageObserver = (message, root, threshold = 0.1) => {
     const messageRef = useRef(null)
+    const user = useAuthUser();
 
     useEffect(() => {
         if (!root) {
@@ -11,8 +13,8 @@ const useMessageObserver = (messageId, root, threshold = 0.1) => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        markMessageAsSeen(messageId)
+                    if (entry.isIntersecting && user.userID !== message.sender_id) {
+                        markMessageAsSeen(message.id)
                         observer.unobserve(entry.target)
                     }
                 })
@@ -34,7 +36,7 @@ const useMessageObserver = (messageId, root, threshold = 0.1) => {
                 observer.disconnect()
             }
         }
-    }, [messageId, root, threshold])
+    }, [message, root, threshold, user.userID])
 
     return messageRef
 }

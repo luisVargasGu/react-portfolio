@@ -3,13 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { getTimeDifference } from '../../../../../services/dates'
 import useMessageObserver from '../../../../../services/screen'
 
-// TODO: don't mark as seen if already marked
-// TODO: don't mark as seen if you are the sender
 const Message = ({ root, message }) => {
     const [timeDifference, setTimeDifference] = useState(
         getTimeDifference(message)
     )
-    const messageRef = useMessageObserver(message.id, root, 1)
+    const messageRef = useMessageObserver(message, root, 1)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -34,9 +32,9 @@ const Message = ({ root, message }) => {
             <div className="message-content">
                 <h4>{message.sender_name}</h4>
                 <p>{message.content}</p>
-                <div class="seen_by">
+                <div className="seen_by">
                     {message?.seen_by?.map(({ avatar, username }) => (
-                        <div className="sender-circle">
+                        <div className="sender-circle" key={username}>
                             {!avatar ?
                                 (
                                     <div className="default-avatar">
