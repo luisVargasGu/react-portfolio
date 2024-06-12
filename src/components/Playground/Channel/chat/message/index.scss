@@ -41,6 +41,7 @@
         position: relative;
         min-height: 60px;
         flex-direction: column;
+        word-break: break-word;
         flex: 1;
 
         h4 {
@@ -54,12 +55,8 @@
 
         .seen_by {
             display: flex;
-            position: absolute;
-            right: 4px;
-            bottom: 8px;
             flex-direction: row-reverse;
-            margin-top: 5px;
-            margin-right: 10px;
+            margin: 10px 14px 10px 0;
 
             .sender-circle {
                 position: relative;
@@ -100,7 +97,6 @@
             right: 0px;
             font-size: 12px;
             color: #888;
-            margin-top: 17px;
             margin-left: auto;
         }
     }
