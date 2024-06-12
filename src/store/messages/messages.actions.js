@@ -51,4 +51,12 @@ export const switchRoomAndFetchMessages = (roomId, channelId) => {
     };
 };
 
-
+export const markMessageAsSeen = async (messageId) => {
+        try {
+            await axios.put(apiUrl + `messages/${messageId}/seen`, {}, {
+                withCredentials: true
+            });
+        } catch (error) {
+            console.error(error);
+        }
+}
