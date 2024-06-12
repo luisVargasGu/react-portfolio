@@ -52,7 +52,49 @@
             word-wrap: break-word;
         }
 
-        span {
+        .seen_by {
+            display: flex;
+            position: absolute;
+            right: 4px;
+            bottom: 8px;
+            flex-direction: row-reverse;
+            margin-top: 5px;
+            margin-right: 10px;
+
+            .sender-circle {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: -14px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                img {
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .default-avatar {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #777;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .time-stamp {
             position: absolute;
             bottom: -8px;
             right: 0px;
