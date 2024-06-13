@@ -18,14 +18,14 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
-                <Route path="/playground" exact element={<Playground />}>
+                <Route path="/playground" element={<Playground />}>
                     <Route index element={<Auth />} />
                     <Route path="register" element={<Registration />} />
                 </Route>
             </Route>
             <Route
                 path="/playground"
-                element={<AuthOutlet exact fallbackPath="/playground" />}
+                element={<AuthOutlet fallbackPath="/playground" />}
             >
                 <Route path="/playground/channel" element={<Playground />}>
                     <Route index element={<Channel />} />

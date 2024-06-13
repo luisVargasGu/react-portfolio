@@ -8,17 +8,16 @@ const NavBar = () => {
     const isOnExcludedRoutes = location.pathname === '/channel' || location.pathname === '/playground';
     return (
         <nav>
-            <NavLink exact="true" activeclassname="active" className="home-link" to="/">
+            <NavLink className="home-link" to="/">
                 <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
             </NavLink>
-            <NavLink exact="true" activeclassname="active" className="about-link" to="/about">
+            <NavLink className="about-link" to="/about">
                 <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
             </NavLink>
-            <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact">
+            <NavLink className="contact-link" to="/contact">
                 <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
             </NavLink>
-            <NavLink exact="true" activeclassname="active"
-                className={isOnExcludedRoutes ? 'tech-link active' : 'tech-link'}
+            <NavLink className={isOnExcludedRoutes ? 'tech-link active' : 'tech-link'}
                 to={!isOnExcludedRoutes ? '/playground' : location.pathname}>
                 <FontAwesomeIcon icon={faMicrochip} color="#4d4d4e" />
             </NavLink>

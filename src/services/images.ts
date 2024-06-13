@@ -1,9 +1,9 @@
 import axios from "axios";
 import { apiUrl } from "./environment";
 
-export const updateUserAvatar = async (email, password) => {
+export const updateUserAvatar = async () => {
     try {
-        const response = await axios.put(`${apiUrl}auth`, { email, password }, {
+        const response = await axios.put(`${apiUrl}image`, {}, {
             withCredentials: true
         });
         return response.data;

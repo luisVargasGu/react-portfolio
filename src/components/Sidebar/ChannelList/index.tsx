@@ -6,9 +6,9 @@ import {
     updateSelectedChannel,
     fetchChannels,
     createChannel,
-} from '../../../store/channels/channels.actions'
-import { updateSelectedRoom } from '../../../store/rooms/rooms.actions'
-import CreateChannelModal from '../../Modal'
+} from '@store/channels/channels.actions'
+import { updateSelectedRoom } from '@store/rooms/rooms.actions'
+import Modal from '@components/Modal'
 
 const ChannelList = ({ channels, fetchChannels }) => {
     const dispatch = useDispatch()
@@ -52,7 +52,7 @@ const ChannelList = ({ channels, fetchChannels }) => {
                     </button>
                 ))}
             </nav>
-            <CreateChannelModal title="Create Channel" show={show} handleClose={() => setShow(false)}>
+            <Modal title="Create Channel" show={show} handleClose={() => setShow(false)}>
                 <label>Channel Name</label>
                 <input
                     type="text"
@@ -61,7 +61,7 @@ const ChannelList = ({ channels, fetchChannels }) => {
                     onChange={(e) => setChannelName(e.target.value)}
                 />
                 <button onClick={handleSubmit}>Submit</button>
-            </CreateChannelModal>
+            </Modal>
         </div>
     );
 }

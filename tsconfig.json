@@ -2,14 +2,29 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"],
-            "@components/*": ["src/components/*"],
-            "@modules/*": ["src/modules/*"],
-            "@services/*": ["src/services/*"],
-            "@store/*": ["src/store/*"],
-            "@assets/*": ["src/assets/*"]
+            "@/*": [
+                "src/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@modules/*": [
+                "src/modules/*"
+            ],
+            "@services/*": [
+                "src/services/*"
+            ],
+            "@store/*": [
+                "src/store/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@types/*": [
+                "src/types/*"
+            ]
         },
-        "target": "ESNext",
+        "target": "ES6",
         "lib": [
             "dom",
             "dom.iterable",
@@ -17,6 +32,11 @@
             "esnext.asynciterable",
             "esnext.array",
             "esnext.symbol"
+        ],
+        "types": [
+            "node",
+            "jest",
+            "@testing-library/jest-dom"
         ],
         "outDir": "./build",
         "rootDir": ".",
@@ -36,7 +56,8 @@
     "include": [
         "src/**/*.ts",
         "src/**/*.tsx",
-        "webpack.config.ts"
+        "webpack.config.ts",
+        "src/types/custom.d.ts"
     ],
     "exclude": [
         "node_modules",
