@@ -2,7 +2,7 @@ import './index.scss';
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCss3, faGitAlt, faGolang, faHtml5, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons';
-import Carousel from '../../components/Carousel';
+import Carousel from '@components/Carousel';
 
 const About = () => {
     const carouselImages = [

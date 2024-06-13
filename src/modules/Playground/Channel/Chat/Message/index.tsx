@@ -1,7 +1,7 @@
 import './index.scss'
 import React, { useEffect, useState } from 'react'
-import { getTimeDifference } from '../../../../../services/dates'
-import useMessageObserver from '../../../../../services/screen'
+import { getTimeDifference } from '@services/dates'
+import useMessageObserver from '@services/screen'
 
 const Message = ({ root, message }) => {
     const [timeDifference, setTimeDifference] = useState(

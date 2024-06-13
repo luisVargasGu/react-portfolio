@@ -1,4 +1,4 @@
-import { disconnectWebSocket } from '../../services/chat'
+import { disconnectWebSocket } from '@services/chat'
 import {
     CREATE_ROOM_FAILURE,
     CREATE_ROOM_REQUEST,

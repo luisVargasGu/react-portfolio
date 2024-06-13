@@ -1,5 +1,14 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@modules/*": ["src/modules/*"],
+            "@services/*": ["src/services/*"],
+            "@store/*": ["src/store/*"],
+            "@assets/*": ["src/assets/*"]
+        },
         "target": "ESNext",
         "lib": [
             "dom",

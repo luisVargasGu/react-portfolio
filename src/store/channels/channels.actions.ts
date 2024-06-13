@@ -1,6 +1,6 @@
 import axios from "axios";
-import { apiUrl } from "../../services/environment";
-import { updateSelectedRoom } from "../rooms/rooms.actions";
+import { apiUrl } from "@services/environment";
+import { updateSelectedRoom } from "@store/rooms/rooms.actions";
 
 export const FETCH_CHANNELS_REQUEST = 'FETCH_CHANNELS_REQUEST';
 export const FETCH_CHANNELS_SUCCESS = 'FETCH_CHANNELS_SUCCESS';

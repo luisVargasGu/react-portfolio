@@ -5,10 +5,10 @@ import {
     deleteRoom,
     fetchRooms,
     updateSelectedRoom,
-} from '../../../store/rooms/rooms.actions'
+} from '@store/rooms/rooms.actions'
 import { connect, useDispatch } from 'react-redux'
-import { deleteChannel } from '../../../store/channels/channels.actions'
-import Modal from '../../../components/Modal'
+import { deleteChannel } from '@store/channels/channels.actions'
+import Modal from '@components/Modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 

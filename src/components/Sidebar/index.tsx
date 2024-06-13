@@ -1,8 +1,8 @@
 import './index.scss';
 import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import LogoS from '../../assets/images/logo-s.png';
-import LogoSubstitle from '../../assets/images/logo_sub.png';
+import LogoS from '@assets/images/logo-s.png';
+import LogoSubstitle from '@assets/images/logo_sub.png';
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,7 @@ import { faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import NavBar from './Navbar';
 import ChannelList from './ChannelList';
-import { updateUserAvatar } from '../../services/images';
+import { updateUserAvatar } from '@services/images';
 
 const Sidebar = () => {
     const isAuthenticated = useIsAuthenticated();

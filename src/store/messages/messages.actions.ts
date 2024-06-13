@@ -1,6 +1,6 @@
 import axios from "axios";
-import { connectWebSocket, disconnectWebSocket } from "../../services/chat";
-import { apiUrl } from "../../services/environment";
+import { connectWebSocket, disconnectWebSocket } from "@services/chat";
+import { apiUrl } from "@services/environment";
 
 export const SWITCH_ROOM = 'SWITCH_ROOM';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';

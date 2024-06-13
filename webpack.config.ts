@@ -17,6 +17,14 @@ const config: Configuration = {
     devtool: 'source-map',
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'], // Add .ts and .tsx extensions
+        alias: {
+            '@': path.resolve(__dirname, 'src/'),
+            '@modules': path.resolve(__dirname, 'src/store/modules/'),
+            '@components': path.resolve(__dirname, 'src/components/'),
+            '@services': path.resolve(__dirname, 'src/services/'),
+            '@store': path.resolve(__dirname, 'src/store/'),
+            '@assets': path.resolve(__dirname, 'src/assets/'),
+        }
     },
     module: {
         rules: [

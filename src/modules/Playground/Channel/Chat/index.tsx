@@ -1,10 +1,10 @@
 import './index.scss'
 import React, { useEffect, useRef, useState } from 'react'
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
-import { sendWebSocketMessage } from '../../../../services/chat'
-import Message from './Message'
+import { sendWebSocketMessage } from '@services/chat'
 import { useDispatch, useSelector } from 'react-redux'
-import { switchRoomAndFetchMessages } from '../../../../store/messages/messages.actions'
+import { switchRoomAndFetchMessages } from '@store/messages/messages.actions'
+import Message from './Message'
 
 const Chat = () => {
     const [input, setInput] = useState('')

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiUrl } from "../../services/environment";
+import { apiUrl } from "@services/environment";
 
 export const FETCH_ROOMS_REQUEST = 'FETCH_ROOMS_REQUEST';
 export const FETCH_ROOMS_SUCCES = 'FETCH_ROOMS_SUCCESS';
