@@ -1,6 +1,6 @@
 import './index.scss'
 import React from 'react'
-import Sidebar from '../../Sidebar'
+import Sidebar from '../../../components/Sidebar'
 import Chat from './chat'
 import RoomList from '../RoomList'
 import { connect } from 'react-redux'

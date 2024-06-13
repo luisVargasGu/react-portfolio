@@ -8,7 +8,7 @@ import {
 } from '../../../store/rooms/rooms.actions'
 import { connect, useDispatch } from 'react-redux'
 import { deleteChannel } from '../../../store/channels/channels.actions'
-import Modal from '../../Sidebar/ChannelList/Modal'
+import Modal from '../../../components/Modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 

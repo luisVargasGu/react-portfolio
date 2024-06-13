@@ -8,7 +8,7 @@ import {
     createChannel,
 } from '../../../store/channels/channels.actions'
 import { updateSelectedRoom } from '../../../store/rooms/rooms.actions'
-import CreateChannelModal from './Modal'
+import CreateChannelModal from '../../Modal'
 
 const ChannelList = ({ channels, fetchChannels }) => {
     const dispatch = useDispatch()

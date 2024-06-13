@@ -2,14 +2,14 @@ import './App.scss';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
-import Playground from './components/Playground';
-import Auth from './components/Playground/Auth';
-import Registration from './components/Playground/Registration';
+import Home from './modules/Home';
+import About from './modules/About';
+import Contact from './modules/Contact';
+import Playground from './modules/Playground';
+import Auth from './Auth';
+import Registration from './Auth/Registration';
 import AuthOutlet from '@auth-kit/react-router/AuthOutlet';
-import Channel from './components/Playground/Channel';
+import Channel from './modules/Playground/Channel';
 
 function App() {
     return (

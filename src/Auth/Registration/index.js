@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../../../services/auth';
-import { getCookie } from '../../../services/http';
+import { register } from '../../services/auth';
+import { getCookie } from '../../services/http';
 import './index.scss'; // Import CSS file for Registration component
 
 const Registration = () => {

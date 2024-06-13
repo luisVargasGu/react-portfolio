@@ -2,9 +2,9 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../../services/auth';
+import { login } from '../services/auth';
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
-import { getCookie } from '../../../services/http';
+import { getCookie } from '../services/http';
 import './index.scss';
 
 const Auth = () => {

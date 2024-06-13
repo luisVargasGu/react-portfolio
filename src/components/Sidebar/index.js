@@ -6,10 +6,11 @@ import LogoSubstitle from '../../assets/images/logo_sub.png';
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import NavBar from './Navbar';
 import ChannelList from './ChannelList';
+import { updateUserAvatar } from '../../services/images';
 
 const Sidebar = () => {
     const isAuthenticated = useIsAuthenticated();
@@ -19,6 +20,10 @@ const Sidebar = () => {
     }
     const location = useLocation();
     const isOnExcludedRoutes = location.pathname === '/playground/channel';
+
+    const handleUserSettings = () => {
+        updateUserAvatar();
+    }
 
     return (
         <div className='nav-bar'>
@@ -60,6 +65,12 @@ const Sidebar = () => {
                         <FontAwesomeIcon icon={faGithub} color="#4d4d4e">
                         </FontAwesomeIcon>
                     </a>
+                </li>
+                <li onClick={handleUserSettings}>
+                    <div className="user-settings">
+                        <FontAwesomeIcon icon={faGear} color="#4d4d4e">
+                        </FontAwesomeIcon>
+                    </div>
                 </li>
             </ul>
         </div>
