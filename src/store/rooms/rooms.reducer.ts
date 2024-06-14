@@ -1,25 +1,27 @@
-import { disconnectWebSocket } from '@services/chat'
 import {
-	CREATE_ROOM_FAILURE,
-	CREATE_ROOM_REQUEST,
-	CREATE_ROOM_SUCCESS,
-	DELETE_ROOM_FAILURE,
-	DELETE_ROOM_REQUEST,
-	DELETE_ROOM_SUCCESS,
-	FETCH_ROOMS_FAILURE,
 	FETCH_ROOMS_REQUEST,
 	FETCH_ROOMS_SUCCES,
+	FETCH_ROOMS_FAILURE,
 	UPDATE_SELECTED_ROOM,
-} from './rooms.actions'
+	CREATE_ROOM_REQUEST,
+	CREATE_ROOM_SUCCESS,
+	CREATE_ROOM_FAILURE,
+	DELETE_ROOM_REQUEST,
+	DELETE_ROOM_SUCCESS,
+	DELETE_ROOM_FAILURE,
+	RoomActionTypes,
+	RoomState,
+} from '@/types'
+import { disconnectWebSocket } from '@services/chat'
 
-const initialState = {
+const initialState: RoomState = {
 	rooms: [],
 	selectedRoomId: null,
 	loading: false,
 	error: null,
 }
 
-const roomReducer = (state = initialState, action) => {
+const roomReducer = (state = initialState, action: RoomActionTypes) => {
 	switch (action.type) {
 		case FETCH_ROOMS_REQUEST:
 			return {
