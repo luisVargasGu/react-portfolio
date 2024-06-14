@@ -1,3 +1,4 @@
+// Channel
 export interface Channel {
 	id: string
 	name: string
@@ -8,12 +9,27 @@ export interface ChannelListProps {
 	fetchChannels: () => void
 }
 
-export interface ButtonProps {
-	label: string
-	onClick: () => void
+// Room
+export interface Room {
+	id: string
+	name: string
+	channel_id: string
 }
 
-export interface SidebarProps {
-	isOpen: boolean
-	onClose: () => void
+// Message
+export interface SeenByUser {
+	avatar: string
+	username: string
 }
+
+export interface Message {
+	id: string
+	room_id: string
+	sender_id: string
+	sender_name: string
+	sender_avatar: string
+	seen_by: SeenByUser[]
+	content: string
+	timestamp: string
+}
+
