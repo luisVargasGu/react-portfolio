@@ -29,6 +29,7 @@ const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
 
     const handleDeleteChannel = () => {
         dispatch(deleteChannel(selectedChannel))
+        dispatch(updateSelectedRoom(null))
     }
 
     const handleDeleteRoom = (roomId) => {

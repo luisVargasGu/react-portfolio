@@ -1,5 +1,6 @@
-export * from './componentTypes';
-export * from './moduleTypes';
-export * from './serviceTypes';
-export * from './storeTypes';
-
+export * from './componentTypes'
+export * from './moduleTypes'
+export * from './serviceTypes'
+export * from './storeTypes'
+export * from './channel/actions'
+export * from './channel/actionTypes'

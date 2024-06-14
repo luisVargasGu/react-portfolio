@@ -1,26 +1,25 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-import channelReducer from './channels/channels.reducers';
-import messagesReducer from './messages/messages.reducer';
-import roomReducer from './rooms/rooms.reducer';
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import channelReducer from './channels/channels.reducers'
+import messagesReducer from './messages/messages.reducer'
+import roomReducer from './rooms/rooms.reducer'
 
 const persistConfig = {
-    key: 'root',
-    storage,
-};
+	key: 'root',
+	storage,
+}
 
 const rootReducer = combineReducers({
-    channels: channelReducer,
-    rooms: roomReducer,
-    messages: messagesReducer,
-});
+	channels: channelReducer,
+	rooms: roomReducer,
+	messages: messagesReducer,
+})
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-    reducer: persistedReducer,
-});
+	reducer: persistedReducer,
+})
 
-export const persistor = persistStore(store);
-
+export const persistor = persistStore(store)

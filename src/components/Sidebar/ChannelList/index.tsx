@@ -9,8 +9,9 @@ import {
 } from '@store/channels/channels.actions'
 import { updateSelectedRoom } from '@store/rooms/rooms.actions'
 import Modal from '@components/Modal'
+import { ChannelListProps } from '@/types'
 
-const ChannelList = ({ channels, fetchChannels }) => {
+const ChannelList: React.FC<ChannelListProps> = ({ channels, fetchChannels }) => {
     const dispatch = useDispatch()
     const [show, setShow] = useState(false)
     const [channelName, setChannelName] = useState('')
@@ -19,7 +20,7 @@ const ChannelList = ({ channels, fetchChannels }) => {
         fetchChannels()
     }, [fetchChannels])
 
-    const handleChannelClick = (channelId) => {
+    const handleChannelClick = (channelId: string) => {
         dispatch(updateSelectedChannel(channelId))
         dispatch(updateSelectedRoom(null));
     }
