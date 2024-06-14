@@ -11,18 +11,18 @@ import {
 	DELETE_ROOM_REQUEST,
 	DELETE_ROOM_SUCCESS,
 	DELETE_ROOM_FAILURE,
-    Room,
-    FetchRoomsSuccessAction,
-    FetchRoomsRequestAction,
-    FetchRoomsFailureAction,
-    UpdateSelectedRoomAction,
-    CreateRoomRequestAction,
-    CreateRoomSuccessAction,
-    CreateRoomFailureAction,
-    DeleteRoomRequestAction,
-    DeleteRoomSuccessAction,
-    DeleteRoomFailureAction,
-    RoomActionTypes,
+	Room,
+	FetchRoomsSuccessAction,
+	FetchRoomsRequestAction,
+	FetchRoomsFailureAction,
+	UpdateSelectedRoomAction,
+	CreateRoomRequestAction,
+	CreateRoomSuccessAction,
+	CreateRoomFailureAction,
+	DeleteRoomRequestAction,
+	DeleteRoomSuccessAction,
+	DeleteRoomFailureAction,
+	RoomActionTypes,
 } from '@/types'
 import { Dispatch } from 'react'
 
@@ -41,7 +41,9 @@ export const fetchRoomsFailure = (error: string): FetchRoomsFailureAction => ({
 	payload: error,
 })
 
-export const updateSelectedRoom = (roomId: string | null): UpdateSelectedRoomAction => ({
+export const updateSelectedRoom = (
+	roomId: string | null
+): UpdateSelectedRoomAction => ({
 	type: UPDATE_SELECTED_ROOM,
 	payload: roomId,
 })

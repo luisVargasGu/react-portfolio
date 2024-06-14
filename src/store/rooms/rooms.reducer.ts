@@ -21,7 +21,10 @@ const initialState: RoomState = {
 	error: null,
 }
 
-const roomReducer = (state = initialState, action: RoomActionTypes): RoomState => {
+const roomReducer = (
+	state = initialState,
+	action: RoomActionTypes
+): RoomState => {
 	switch (action.type) {
 		case FETCH_ROOMS_REQUEST:
 			return {

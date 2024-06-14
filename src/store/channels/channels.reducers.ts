@@ -21,7 +21,10 @@ const initialState: ChannelState = {
 	error: null,
 }
 
-const channelReducer = (state: ChannelState = initialState, action: ChannelActionTypes): ChannelState => {
+const channelReducer = (
+	state: ChannelState = initialState,
+	action: ChannelActionTypes
+): ChannelState => {
 	switch (action.type) {
 		case FETCH_CHANNELS_REQUEST:
 			return {

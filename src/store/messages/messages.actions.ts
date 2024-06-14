@@ -9,9 +9,9 @@ import {
 	SWITCH_ROOM,
 	SwitchRoomAction,
 	ReceiveMessageAction,
-FetchMessagesSuccessAction,
-FetchMessagesFailureAction,
-ChatAction,
+	FetchMessagesSuccessAction,
+	FetchMessagesFailureAction,
+	ChatAction,
 } from '@/types'
 import { Dispatch } from 'react'
 
@@ -20,17 +20,25 @@ export const switchRoom = (roomId: string): SwitchRoomAction => ({
 	payload: roomId,
 })
 
-export const recieveMessage = (roomId: string, message: Message): ReceiveMessageAction => ({
+export const recieveMessage = (
+	roomId: string,
+	message: Message
+): ReceiveMessageAction => ({
 	type: RECEIVE_MESSAGE,
 	payload: { roomId, message },
 })
 
-export const fetchMessagesSuccess = (roomId: string, messages: Message[]): FetchMessagesSuccessAction => ({
+export const fetchMessagesSuccess = (
+	roomId: string,
+	messages: Message[]
+): FetchMessagesSuccessAction => ({
 	type: FETCH_MESSAGES_SUCCESS,
 	payload: { roomId, messages },
 })
 
-export const fetchMessageFailure = (error: string): FetchMessagesFailureAction => ({
+export const fetchMessageFailure = (
+	error: string
+): FetchMessagesFailureAction => ({
 	type: FETCH_MESSAGES_FAILURE,
 	payload: error,
 })
