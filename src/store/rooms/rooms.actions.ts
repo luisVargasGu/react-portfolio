@@ -2,7 +2,7 @@ import axios from 'axios'
 import { apiUrl } from '@services/environment'
 import {
 	FETCH_ROOMS_REQUEST,
-	FETCH_ROOMS_SUCCES,
+	FETCH_ROOMS_SUCCESS,
 	FETCH_ROOMS_FAILURE,
 	UPDATE_SELECTED_ROOM,
 	CREATE_ROOM_REQUEST,
@@ -28,10 +28,11 @@ import { Dispatch } from 'react'
 
 export const fetchRoomsRequest = (): FetchRoomsRequestAction => ({
 	type: FETCH_ROOMS_REQUEST,
+	payload: null,
 })
 
 export const fetchRoomsSuccess = (rooms: Room[]): FetchRoomsSuccessAction => ({
-	type: FETCH_ROOMS_SUCCES,
+	type: FETCH_ROOMS_SUCCESS,
 	payload: rooms,
 })
 
@@ -47,6 +48,7 @@ export const updateSelectedRoom = (roomId: string | null): UpdateSelectedRoomAct
 
 export const createRoomRequest = (): CreateRoomRequestAction => ({
 	type: CREATE_ROOM_REQUEST,
+	payload: null,
 })
 
 export const createRoomSuccess = (room: Room): CreateRoomSuccessAction => ({
@@ -61,6 +63,7 @@ export const createRoomFailure = (error: string): CreateRoomFailureAction => ({
 
 export const deleteRoomRequest = (): DeleteRoomRequestAction => ({
 	type: DELETE_ROOM_REQUEST,
+	payload: null,
 })
 
 export const deleteRoomSuccess = (roomID: string): DeleteRoomSuccessAction => ({

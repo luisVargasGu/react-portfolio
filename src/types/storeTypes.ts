@@ -1,8 +1,21 @@
-import { Room } from "./componentTypes";
+import { Channel, Message, Room } from "./componentTypes";
 
-export interface ChatState {
+export interface RootState {
+        channels: ChannelState;
+        rooms: RoomState;
+        messages: MessageState;
+}
+
+export interface ChannelState {
+        channels: Channel[];
+        selectedChannelId: string | null;
+        error: string | null;
+        loading: boolean;
+}
+
+export interface MessageState {
         rooms: {
-                [key: string]: Room[];
+                [key: string]: Message[];
         };
         error: string | null;
         loading: boolean;

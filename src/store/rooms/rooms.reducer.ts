@@ -1,6 +1,6 @@
 import {
 	FETCH_ROOMS_REQUEST,
-	FETCH_ROOMS_SUCCES,
+	FETCH_ROOMS_SUCCESS,
 	FETCH_ROOMS_FAILURE,
 	UPDATE_SELECTED_ROOM,
 	CREATE_ROOM_REQUEST,
@@ -21,7 +21,7 @@ const initialState: RoomState = {
 	error: null,
 }
 
-const roomReducer = (state = initialState, action: RoomActionTypes) => {
+const roomReducer = (state = initialState, action: RoomActionTypes): RoomState => {
 	switch (action.type) {
 		case FETCH_ROOMS_REQUEST:
 			return {
@@ -29,7 +29,7 @@ const roomReducer = (state = initialState, action: RoomActionTypes) => {
 				loading: true,
 				error: null,
 			}
-		case FETCH_ROOMS_SUCCES:
+		case FETCH_ROOMS_SUCCESS:
 			return {
 				...state,
 				rooms: action.payload,

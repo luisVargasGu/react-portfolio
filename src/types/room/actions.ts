@@ -9,15 +9,16 @@ import {
         DELETE_ROOM_REQUEST,
         DELETE_ROOM_SUCCESS,
         DELETE_ROOM_FAILURE,
-        FETCH_ROOMS_SUCCES,
+        FETCH_ROOMS_SUCCESS,
 } from './actionTypes'
 
 export interface FetchRoomsRequestAction {
         type: typeof FETCH_ROOMS_REQUEST
+	payload: null
 }
 
 export interface FetchRoomsSuccessAction {
-        type: typeof FETCH_ROOMS_SUCCES
+        type: typeof FETCH_ROOMS_SUCCESS
         payload: Room[]
 }
 
@@ -33,6 +34,7 @@ export interface UpdateSelectedRoomAction {
 
 export interface CreateRoomRequestAction {
         type: typeof CREATE_ROOM_REQUEST
+	payload: null
 }
 
 export interface CreateRoomSuccessAction {
@@ -47,6 +49,7 @@ export interface CreateRoomFailureAction {
 
 export interface DeleteRoomRequestAction {
         type: typeof DELETE_ROOM_REQUEST
+	payload: null
 }
 
 export interface DeleteRoomSuccessAction {

@@ -12,54 +12,54 @@ import {
 	UPDATE_SELECTED_CHANNEL,
 } from './actionTypes'
 
-interface FetchChannelsRequestAction {
+export interface FetchChannelsRequestAction {
 	type: typeof FETCH_CHANNELS_REQUEST
 }
 
-interface FetchChannelsSuccessAction {
+export interface FetchChannelsSuccessAction {
 	type: typeof FETCH_CHANNELS_SUCCESS
 	payload: Channel[]
 }
 
-interface FetchChannelsFailureAction {
+export interface FetchChannelsFailureAction {
 	type: typeof FETCH_CHANNELS_FAILURE
 	payload: string
 }
 
-interface UpdateSelectedChannelAction {
+export interface UpdateSelectedChannelAction {
 	type: typeof UPDATE_SELECTED_CHANNEL
 	payload: string | null
 }
 
-interface CreateChannelRequestAction {
+export interface CreateChannelRequestAction {
 	type: typeof CREATE_CHANNEL_REQUEST
 }
 
-interface CreateChannelSuccessAction {
+export interface CreateChannelSuccessAction {
 	type: typeof CREATE_CHANNEL_SUCCESS
 	payload: Channel
 }
 
-interface CreateChannelFailureAction {
+export interface CreateChannelFailureAction {
 	type: typeof CREATE_CHANNEL_FAILURE
 	payload: string
 }
 
-interface DeleteChannelRequestAction {
+export interface DeleteChannelRequestAction {
 	type: typeof DELETE_CHANNEL_REQUEST
 }
 
-interface DeleteChannelSuccessAction {
+export interface DeleteChannelSuccessAction {
 	type: typeof DELETE_CHANNEL_SUCCESS
 	payload: string
 }
 
-interface DeleteChannelFailureAction {
+export interface DeleteChannelFailureAction {
 	type: typeof DELETE_CHANNEL_FAILURE
 	payload: string
 }
 
-type ChannelActionTypes =
+export type ChannelActionTypes =
 	| FetchChannelsRequestAction
 	| FetchChannelsSuccessAction
 	| FetchChannelsFailureAction

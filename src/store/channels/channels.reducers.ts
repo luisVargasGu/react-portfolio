@@ -11,16 +11,17 @@ import {
 	DELETE_CHANNEL_FAILURE,
 	ChannelActionTypes,
 	Channel,
+	ChannelState,
 } from '@/types'
 
-const initialState = {
+const initialState: ChannelState = {
 	channels: [],
 	selectedChannelId: null,
 	loading: false,
 	error: null,
 }
 
-const channelReducer = (state = initialState, action: ChannelActionTypes) => {
+const channelReducer = (state: ChannelState = initialState, action: ChannelActionTypes): ChannelState => {
 	switch (action.type) {
 		case FETCH_CHANNELS_REQUEST:
 			return {

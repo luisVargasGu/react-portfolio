@@ -1,12 +1,12 @@
-import { SWITCH_ROOM, RECEIVE_MESSAGE, FETCH_MESSAGES_SUCCESS, FETCH_MESSAGES_FAILURE, ChatAction, ChatState } from "@/types"
+import { SWITCH_ROOM, RECEIVE_MESSAGE, FETCH_MESSAGES_SUCCESS, FETCH_MESSAGES_FAILURE, ChatAction, MessageState } from "@/types"
 
-const initialState: ChatState = {
+const initialState: MessageState = {
 	rooms: {},
 	loading: false,
 	error: null,
 }
 
-const messagesReducer = (state = initialState, action: ChatAction) => {
+const messagesReducer = (state = initialState, action: ChatAction): MessageState  => {
 	switch (action.type) {
 		case SWITCH_ROOM:
 			return {
