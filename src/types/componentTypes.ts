@@ -51,3 +51,8 @@ export interface ErrorBoundaryProps {
 export interface ErrorBoundaryState {
 	hasError: boolean
 }
+
+// Carousel
+export interface CarouselProps {
+	imgSrc: string
+}

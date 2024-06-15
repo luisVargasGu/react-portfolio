@@ -1,8 +1,9 @@
+import { CarouselProps } from '@/types';
 import React, { useEffect, useState } from 'react';
 import ErrorBoundary from '../Errorhandler';
 import './index.scss';
 
-const Carousel = ({ imgSrc }) => {
+const Carousel: React.FC<CarouselProps> = ({ imgSrc }) => {
     const [imageFadeClass, setImageFadeClass] = useState('');
     const [errorState, setErrorState] = useState(false);
 
