@@ -6,9 +6,9 @@ import DrawSVGPlugin from 'gsap-trial/DrawSVGPlugin';
 import gsap from 'gsap-trial';
 
 const Logo = () => {
-    const bgRef = useRef();
-    const outlineLogoRef = useRef();
-    const solidLogoRef = useRef();
+    const bgRef = useRef(null);
+    const outlineLogoRef = useRef(null);
+    const solidLogoRef = useRef(null);
 
     useEffect(() => {
         gsap.registerPlugin(DrawSVGPlugin);
