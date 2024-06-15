@@ -42,3 +42,12 @@ export interface ModalProps {
 	show: boolean
 	children: React.ReactNode
 }
+
+// ErrorBoundary
+export interface ErrorBoundaryProps {
+	children: React.ReactNode
+}
+
+export interface ErrorBoundaryState {
+	hasError: boolean
+}
