@@ -1,6 +1,6 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { Dispatch, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import {
     updateSelectedChannel,
@@ -9,11 +9,10 @@ import {
 } from '@store/channels/channels.actions'
 import { updateSelectedRoom } from '@store/rooms/rooms.actions'
 import Modal from '@components/Modal'
-import { ChannelListProps } from '@/types'
-import { Action } from '@reduxjs/toolkit'
+import { AppDispatch, Channel, ChannelListProps } from '@/types'
 
 const ChannelList: React.FC<ChannelListProps> = ({ channels, fetchChannels }) => {
-    const dispatch: Dispatch<Action> = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     const [show, setShow] = useState(false)
     const [channelName, setChannelName] = useState('')
 
@@ -32,7 +31,6 @@ const ChannelList: React.FC<ChannelListProps> = ({ channels, fetchChannels }) =>
 
     const handleSubmit = () => {
         setChannelName('')
-	// TODO: Use redux-thunk to dispatch the createChannel action
         dispatch(createChannel({ name: channelName, id: '' }))
         setShow(false)
     };
@@ -45,7 +43,7 @@ const ChannelList: React.FC<ChannelListProps> = ({ channels, fetchChannels }) =>
                         <FontAwesomeIcon icon={faPlus} color="#fff" />
                     </h3>
                 </button>
-                {channels?.channels.map((channel) => (
+                {channels?.channels.map((channel: Channel) => (
                     <button
                         key={channel.id}
                         className={`channel-link ${channels.selectedChannelId === channel.id ? 'active' : ''}`}
