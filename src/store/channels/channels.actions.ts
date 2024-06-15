@@ -93,7 +93,7 @@ export const deleteChannelFailure = (
 	payload: error,
 })
 
-export const fetchChannels = () => {
+export const fetchChannels = (): AppThunk => {
 	return async (dispatch: Dispatch<ChannelActionTypes>) => {
 		dispatch(fetchChannelsRequest())
 		try {
@@ -123,7 +123,7 @@ export const createChannel = (channel: Channel): AppThunk => {
 	}
 }
 
-export const deleteChannel = (channelId: string) => {
+export const deleteChannel = (channelId: string): AppThunk => {
 	return async (dispatch: Dispatch<ChannelActionTypes>) => {
 		dispatch(deleteChannelRequest())
 		try {
