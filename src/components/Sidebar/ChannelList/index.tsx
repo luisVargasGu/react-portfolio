@@ -9,7 +9,7 @@ import {
 } from '@store/channels/channels.actions'
 import { updateSelectedRoom } from '@store/rooms/rooms.actions'
 import Modal from '@components/Modal'
-import { AppDispatch, Channel, ChannelListProps } from '@/types'
+import { AppDispatch, Channel, ChannelListProps, RootState } from '@/types'
 
 const ChannelList: React.FC<ChannelListProps> = ({ channels, fetchChannels }) => {
     const dispatch = useDispatch<AppDispatch>()
@@ -67,7 +67,7 @@ const ChannelList: React.FC<ChannelListProps> = ({ channels, fetchChannels }) =>
     );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: RootState) => ({
     channels: state.channels,
 })
 
