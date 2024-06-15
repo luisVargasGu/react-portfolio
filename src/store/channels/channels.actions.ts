@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { apiUrl } from '@services/environment'
 import {
+    AppThunk,
 	Channel,
 	ChannelActionTypes,
 	CreateChannelFailureAction,
@@ -107,7 +108,7 @@ export const fetchChannels = () => {
 	}
 }
 
-export const createChannel = (channel: Channel) => {
+export const createChannel = (channel: Channel): AppThunk => {
 	return async (dispatch: Dispatch<ChannelActionTypes>) => {
 		dispatch(createChannelRequest())
 		try {

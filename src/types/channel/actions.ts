@@ -14,6 +14,7 @@ import {
 
 export interface FetchChannelsRequestAction {
 	type: typeof FETCH_CHANNELS_REQUEST
+	payload: null
 }
 
 export interface FetchChannelsSuccessAction {
@@ -33,6 +34,7 @@ export interface UpdateSelectedChannelAction {
 
 export interface CreateChannelRequestAction {
 	type: typeof CREATE_CHANNEL_REQUEST
+	payload: null
 }
 
 export interface CreateChannelSuccessAction {
@@ -47,6 +49,7 @@ export interface CreateChannelFailureAction {
 
 export interface DeleteChannelRequestAction {
 	type: typeof DELETE_CHANNEL_REQUEST
+	payload: null
 }
 
 export interface DeleteChannelSuccessAction {

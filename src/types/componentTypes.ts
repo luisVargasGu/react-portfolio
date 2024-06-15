@@ -1,3 +1,5 @@
+import { ChannelState } from "./storeTypes"
+
 // Channel
 export interface Channel {
 	id: string
@@ -5,7 +7,7 @@ export interface Channel {
 }
 
 export interface ChannelListProps {
-	channels: Channel[]
+	channels: ChannelState
 	fetchChannels: () => void
 }
 

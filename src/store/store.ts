@@ -1,9 +1,10 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { persistReducer, persistStore } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-import channelReducer from './channels/channels.reducers'
-import messagesReducer from './messages/messages.reducer'
-import roomReducer from './rooms/rooms.reducer'
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { thunk } from 'redux-thunk';
+import channelReducer from './channels/channels.reducers';
+import messagesReducer from './messages/messages.reducer';
+import roomReducer from './rooms/rooms.reducer';
 
 const persistConfig = {
 	key: 'root',
@@ -21,6 +22,10 @@ const persistedReducer = persistReducer<any, any>(persistConfig, rootReducer)
 
 export const store = configureStore({
 	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}).concat(thunk),
 })
 
 export const persistor = persistStore(store)
