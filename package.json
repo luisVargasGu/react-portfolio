@@ -11,6 +11,7 @@
 		"@preact/signals-react": "^2.0.0",
 		"@reduxjs/toolkit": "^2.2.4",
 		"@testing-library/user-event": "^13.5.0",
+		"@types/leaflet": "^1.9.12",
 		"@types/react-router-dom": "^5.3.3",
 		"animate.css": "^4.1.1",
 		"axios": "^1.6.2",

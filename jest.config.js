@@ -10,9 +10,7 @@ module.exports = {
 		'^.+\\.(js|jsx)$': 'babel-jest',
 		'^.+\\.mjs$': 'babel-jest',
 	},
-	transformIgnorePatterns: [
-		'<rootDir>/node_modules/',
-	],
+	transformIgnorePatterns: ['<rootDir>/node_modules/'],
 	moduleNameMapper: {
 		'^@/(.*)$': '<rootDir>/src/$1',
 		'^@components/(.*)$': '<rootDir>/src/components/$1',
