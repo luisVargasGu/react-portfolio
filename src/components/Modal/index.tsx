@@ -1,9 +1,10 @@
+import { ModalProps } from '@/types';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './index.scss';
 
-export const CreateChannelModal = ({ title, handleClose, show, children }) => {
+export const Modal: React.FC<ModalProps> = ({ title, handleClose, show, children }) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     return (
@@ -21,5 +22,5 @@ export const CreateChannelModal = ({ title, handleClose, show, children }) => {
     )
 }
 
-export default CreateChannelModal;
+export default Modal;
 

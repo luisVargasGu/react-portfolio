@@ -34,3 +34,11 @@ export interface Message {
 	content: string
 	timestamp: string
 }
+
+// Modal
+export interface ModalProps {
+	title: string
+	handleClose: () => void
+	show: boolean
+	children: React.ReactNode
+}
