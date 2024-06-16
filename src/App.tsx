@@ -1,38 +1,59 @@
-import './App.scss';
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './modules/Home';
-import About from './modules/About';
-import Contact from './modules/Contact';
-import Playground from './modules/Playground';
-import Auth from './Auth';
-import Registration from './Auth/Registration';
-import AuthOutlet from '@auth-kit/react-router/AuthOutlet';
-import Channel from './modules/Playground/Channel';
+import AuthOutlet from '@auth-kit/react-router/AuthOutlet'
+import React from 'react'
+import { BrowserRouter, useRoutes } from 'react-router-dom'
+import './App.scss'
+import Auth from './Auth'
+import Registration from './Auth/Registration'
+import Layout from './components/Layout'
+import About from './modules/About'
+import Contact from './modules/Contact'
+import Home from './modules/Home'
+import Playground from './modules/Playground'
+import Channel from './modules/Playground/Channel'
 
-function App() {
-    return (
-        <Routes>
-            <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="about" element={<About />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="/playground" element={<Playground />}>
-                    <Route index element={<Auth />} />
-                    <Route path="register" element={<Registration />} />
-                </Route>
-            </Route>
-            <Route
-                path="/playground"
-                element={<AuthOutlet fallbackPath="/playground" />}
-            >
-                <Route path="/playground/channel" element={<Playground />}>
-                    <Route index element={<Channel />} />
-                </Route>
-            </Route>
-        </Routes>
-    )
+const AppRoutes = () => {
+  const routes = [
+    {
+      path: '/',
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: 'about', element: <About /> },
+        { path: 'contact', element: <Contact /> },
+        {
+          path: 'playground',
+          element: <Playground />,
+          children: [
+            { index: true, element: <Auth /> },
+            { path: 'register', element: <Registration /> },
+          ],
+        },
+      ],
+    },
+    {
+      path: '/playground',
+      element: <AuthOutlet fallbackPath="/playground" />,
+      children: [
+        {
+          path: 'channel',
+          element: <Playground />,
+          children: [{ index: true, element: <Channel /> }],
+        },
+      ],
+    },
+  ]
+
+  return useRoutes(routes)
+}
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <React.StrictMode>
+        <AppRoutes />
+      </React.StrictMode>
+    </BrowserRouter>
+  )
 }
 
 export default App

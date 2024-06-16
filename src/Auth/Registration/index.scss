@@ -1,66 +1,65 @@
 .registration-container {
-    position: relative;
-    width: 50%;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: radial-gradient(circle, aliceblue 60%, #f0f0f0);
+  position: relative;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(circle, aliceblue 60%, #f0f0f0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s;
+
+  .logo {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 2rem;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+
+  .registration-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    transition: transform 0.5s;
+    width: 100%;
+  }
 
-    .logo {
-        position: absolute;
-        cursor: pointer;
-        top: 10px;
-        right: 10px;
-        width: 50px;
-        height: 2rem;
-        padding: 10px;
-        margin: 10px 0;
+  .registration-input {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .registration-button {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 18px;
+    background-color: #ffd700;
+    color: #022c43;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #ffc107;
     }
-
-    h1 {
-        margin-bottom: 20px;
-        font-size: 24px;
-        color: #333;
-    }
-
-    .registration-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .registration-input {
-        margin-bottom: 10px;
-        padding: 8px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .registration-button {
-        padding: 10px;
-        margin: 10px 0;
-        font-size: 18px;
-        background-color: #ffd700;
-        color: #022c43;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: #ffc107;
-        }
-
-    }
+  }
 }

@@ -1,150 +1,149 @@
 @import 'leaflet/dist/leaflet.css';
 
 .container.contact-page {
+  display: flex;
+
+  h1 {
+    font-size: 53px;
+    font-family: 'Coolvetica';
+    color: #ffd700;
+    font-weight: 400;
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 2;
+    color: #fff;
+    font-family: sans-serif;
+    max-width: fit-content;
+    animation: pulse 1s;
+  }
+
+  .text-zone {
+    margin: auto 0 auto 15%;
+    width: 35%;
+    vertical-align: middle;
+    max-height: 90%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    h1 {
-        font-size: 53px;
-        font-family: 'Coolvetica';
-        color: #ffd700;
-        font-weight: 400;
-        margin-top: 0;
-        position: relative;
-        margin-bottom: 5px;
-    }
+  .contact-form {
+    width: 100%;
+    margin-top: 20px;
 
-    p {
-        font-size: 16px;
-        line-height: 2;
-        color: #fff;
-        font-family: sans-serif;
-        max-width: fit-content;
-        animation: pulse 1s;
-    }
+    ul {
+      padding: 0;
+      margin: 0;
 
-    .text-zone {
-        margin: auto 0 auto 15%;
-        width: 35%;
-        vertical-align: middle;
-        max-height: 90%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-    }
-
-    .contact-form {
-        width: 100%;
-        margin-top: 20px;
-
-        ul {
-            padding: 0;
-            margin: 0;
-
-            li {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-                margin-bottom: 10px;
-                opacity: 0;
-                overflow: hidden;
-                display: block;
-                clear: both;
-                position: relative;
-                animation: fadeInUp 2s 2s;
-                animation-fill-mode: forwards;
-            }
-
-            li.half {
-                width: 49%;
-                margin-left: 2%;
-                float: left;
-                clear: none;
-
-                &:first-child {
-                    margin-left: 0;
-                }
-            }
-        }
-
-        input[type='text'],
-        input[type='email'] {
-            width: 100%;
-            border: 0;
-            background: #115173;
-            height: 50px;
-            font-size: 16px;
-            color: #fff;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        input[type='submit'] {
-            float: right;
-        }
-
-        textarea {
-            width: 100%;
-            border: 0;
-            background: #115173;
-            height: 50px;
-            font-size: 16px;
-            color: #fff;
-            padding: 20px;
-            box-sizing: border-box;
-            min-height: 150px;
-        }
-    }
-
-    .map-wrap {
-        background: rgba(8, 253, 216, 0.1);
-        float: right;
-        width: 25%;
-        height: 53%;
-        margin: 6% auto auto auto;
-    }
-
-    .leaflet-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
+      li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        margin-bottom: 10px;
         opacity: 0;
-        animation: backInRight 1s 1.2s;
+        overflow: hidden;
+        display: block;
+        clear: both;
+        position: relative;
+        animation: fadeInUp 2s 2s;
         animation-fill-mode: forwards;
-    }
+      }
 
-    .info-map {
-        background: #000;
-        z-index: 999999;
-        width: 70%;
-        height: 100px;
-        padding: 20px;
-        color: #fff;
-        font-family: 'Helvetica';
-        font-size: 16px;
-        animation: fadeIn 1s 1.5s;
-        animation-fill-mode: forwards;
+      li.half {
+        width: 49%;
+        margin-left: 2%;
+        float: left;
+        clear: none;
 
-        span {
-            font-size: 16px;
-
-            span {
-                color: #ffd700;
-            }
+        &:first-child {
+          margin-left: 0;
         }
+      }
     }
+
+    input[type='text'],
+    input[type='email'] {
+      width: 100%;
+      border: 0;
+      background: #115173;
+      height: 50px;
+      font-size: 16px;
+      color: #fff;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    input[type='submit'] {
+      float: right;
+    }
+
+    textarea {
+      width: 100%;
+      border: 0;
+      background: #115173;
+      height: 50px;
+      font-size: 16px;
+      color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+      min-height: 150px;
+    }
+  }
+
+  .map-wrap {
+    background: rgba(8, 253, 216, 0.1);
+    float: right;
+    width: 25%;
+    height: 53%;
+    margin: 6% auto auto auto;
+  }
+
+  .leaflet-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: backInRight 1s 1.2s;
+    animation-fill-mode: forwards;
+  }
+
+  .info-map {
+    background: #000;
+    z-index: 999999;
+    width: 70%;
+    height: 100px;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Helvetica';
+    font-size: 16px;
+    animation: fadeIn 1s 1.5s;
+    animation-fill-mode: forwards;
+
+    span {
+      font-size: 16px;
+
+      span {
+        color: #ffd700;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .map-wrap {
-        float: none;
-        margin: 0;
-        width: 100%;
-        height: 400px;
-    }
+  .map-wrap {
+    float: none;
+    margin: 0;
+    width: 100%;
+    height: 400px;
+  }
 
-    .info-map {
-        display: none;
-    }
+  .info-map {
+    display: none;
+  }
 }

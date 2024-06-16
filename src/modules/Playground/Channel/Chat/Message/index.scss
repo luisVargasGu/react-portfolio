@@ -1,104 +1,103 @@
 .message-box {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    background-color: #f0f0f0;
-    /* Slightly different shade */
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #f0f0f0;
+  /* Slightly different shade */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 
-    .sender-circle {
+  .sender-circle {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .default-avatar {
+      background-color: #007bff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .message-content {
+    display: flex;
+    position: relative;
+    min-height: 60px;
+    flex-direction: column;
+    word-break: break-word;
+    flex: 1;
+
+    h4 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      word-wrap: break-word;
+    }
+
+    .seen_by {
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 10px 14px 10px 0;
+
+      .sender-circle {
+        position: relative;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
+        background-color: #ddd;
         display: flex;
-        justify-content: center;
         align-items: center;
-        color: white;
-        font-weight: bold;
-        margin-right: 10px;
+        justify-content: center;
+        margin-right: -14px;
+
+        &:first-child {
+          margin-left: 0;
+        }
 
         img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
         }
 
         .default-avatar {
-            background-color: #007bff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #777;
+          border-radius: 50%;
         }
+      }
     }
 
-    .message-content {
-        display: flex;
-        position: relative;
-        min-height: 60px;
-        flex-direction: column;
-        word-break: break-word;
-        flex: 1;
-
-        h4 {
-            margin: 0;
-        }
-
-        p {
-            margin: 0;
-            word-wrap: break-word;
-        }
-
-        .seen_by {
-            display: flex;
-            flex-direction: row-reverse;
-            margin: 10px 14px 10px 0;
-
-            .sender-circle {
-                position: relative;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background-color: #ddd;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-right: -14px;
-
-                &:first-child {
-                    margin-left: 0;
-                }
-
-                img {
-                    border-radius: 50%;
-                    width: 100%;
-                    height: 100%;
-                }
-
-                .default-avatar {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: #777;
-                    border-radius: 50%;
-                }
-            }
-        }
-
-        .time-stamp {
-            position: absolute;
-            bottom: -8px;
-            right: 0px;
-            font-size: 12px;
-            color: #888;
-            margin-left: auto;
-        }
+    .time-stamp {
+      position: absolute;
+      bottom: -8px;
+      right: 0px;
+      font-size: 12px;
+      color: #888;
+      margin-left: auto;
     }
-
+  }
 }
