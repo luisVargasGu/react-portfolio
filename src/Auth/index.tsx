@@ -1,10 +1,10 @@
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { login } from '@services/auth'
-import useSignIn from 'react-auth-kit/hooks/useSignIn'
 import { getCookie } from '@services/http'
+import { FormEvent, useState } from 'react'
+import useSignIn from 'react-auth-kit/hooks/useSignIn'
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
 
 const Auth = () => {
@@ -13,7 +13,7 @@ const Auth = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: FormEvent) => {
     e.preventDefault()
     // TODO: add error handling
     // TODO: add loading state
