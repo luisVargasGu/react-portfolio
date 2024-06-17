@@ -66,7 +66,7 @@ const Home = () => {
 	  py-2
 	  px-4
 	  border
-	  border-yellow-500
+	  border-primary
 	  mt-6
 	  float-left
 	  animate-fadeIn

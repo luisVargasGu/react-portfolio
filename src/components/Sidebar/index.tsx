@@ -23,43 +23,68 @@ const Sidebar = () => {
   const handleUserSettings = () => {
     updateUserAvatar()
   }
-
   return (
-    <div className="nav-bar">
-      <Link className="logo" to="/">
-        <img src={LogoS} alt="logo"></img>
-        <img className="sub-logo" src={LogoSubstitle} alt="slobodan"></img>
+    <div className="nav-bar bg-gray-900 w-24 h-full absolute top-0 z-30 min-h-[500px]">
+      <Link className="block py-2" to="/">
+        <img
+          src={LogoS}
+          alt="logo"
+          className="block mx-auto w-12 h-auto mb-2"
+        />
+        <img
+          src={LogoSubstitle}
+          alt="slobodan"
+          className="block mx-auto w-20 h-auto"
+        />
       </Link>
       {isOnExcludedRoutes && isAuthenticated ? <ChannelList /> : <NavBar />}
-      <ul>
+      <ul className="absolute bottom-5 w-full text-center list-none p-0 m-0">
         {isAuthenticated ? (
-          <li onClick={() => signOutFunc()}>
-            <NavLink className="logout-link" to="/playground">
-              <FontAwesomeIcon icon={faRightFromBracket} color="#4d4d4e" />
+          <li className="py-2">
+            <NavLink
+              to="/playground"
+              onClick={signOutFunc}
+              className="block bg-[#022c43] text-white p-2 rounded"
+            >
+              <FontAwesomeIcon
+                icon={faRightFromBracket}
+                className="text-gray-500 text-2xl hover:text-primary"
+              />
             </NavLink>
           </li>
         ) : null}
-        <li>
+        <li className="py-2">
           <a
-            target="_blank"
-            rel="noreferrer"
             href="https://www.linkedin.com/in/luis-v-5122b8149/"
-          >
-            <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
-          </a>
-        </li>
-        <li>
-          <a
             target="_blank"
             rel="noreferrer"
-            href="https://github.com/luisVargasGu"
+            className="block"
           >
-            <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              className="text-gray-500 text-2xl hover:text-primary"
+            />
           </a>
         </li>
-        <li onClick={handleUserSettings}>
-          <div className="user-settings">
-            <FontAwesomeIcon icon={faGear} color="#4d4d4e" />
+        <li className="py-2">
+          <a
+            href="https://github.com/luisVargasGu"
+            target="_blank"
+            rel="noreferrer"
+            className="block"
+          >
+            <FontAwesomeIcon
+              icon={faGithub}
+              className="text-gray-500 text-2xl hover:text-primary"
+            />
+          </a>
+        </li>
+        <li className="py-2" onClick={handleUserSettings}>
+          <div className="block">
+            <FontAwesomeIcon
+              icon={faGear}
+              className="text-gray-500 text-2xl hover:text-primary"
+            />
           </div>
         </li>
       </ul>

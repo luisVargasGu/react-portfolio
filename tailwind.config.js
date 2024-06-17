@@ -7,9 +7,26 @@ export default {
         white: '#fff',
         primary: {
           light: '#fff',
-          DEFAULT: '#ffd700',
+          DEFAULT: '#F9F871',
           dark: '#000000',
         },
+        secondary: {
+          light: '#008283',
+          DEFAULT: '#022C43',
+          dark: '#333',
+        },
+        tertiary: {
+          light: '#FFA458',
+          DEFAULT: '#E69C24',
+          dark: '#000000',
+        },
+      },
+      content: {
+        home: '"HOME"',
+        about: '"ABOUT"',
+        contact: '"CONTACT"',
+        play: '"PLAY"',
+        channel: '"CHANNEL"',
       },
       fontFamily: {
         coolvetica: ['Coolvetica', 'sans-serif'],
@@ -36,5 +53,26 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.after-content-home': {
+          content: '"HOME"',
+        },
+        '.after-content-about': {
+          content: '"ABOUT"',
+        },
+        '.after-content-contact': {
+          content: '"CONTACT"',
+        },
+        '.after-content-play': {
+          content: '"PLAY"',
+        },
+        '.after-content-channel': {
+          content: '"CHANNEL"',
+        },
+      }
+      addUtilities(newUtilities, ['after'])
+    },
+  ],
 }
