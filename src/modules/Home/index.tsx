@@ -10,7 +10,7 @@ const Home = () => {
           <span
             className="before:content-['<h1>']
 	  before:font-la-belle-aurore
-	  before:text-yellow-500
+	  before:text-primary
 	  before:text-4xl
 	  before:absolute
 	  before:mt-[-40px]
@@ -34,7 +34,7 @@ const Home = () => {
             className="
 	  after:content-['</h1>']
 	  after:font-la-belle-aurore
-	  after:text-yellow-500
+	  after:text-primary
 	  after:text-4xl
 	  after:absolute
 	  after:mt-[18px]
@@ -57,7 +57,7 @@ const Home = () => {
           to="/contact"
           className="
 	  bg-transparent
-	  text-yellow-500
+	  text-primary
 	  text-xl
 	  font-normal
 	  tracking-wider

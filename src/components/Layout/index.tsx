@@ -1,20 +1,62 @@
-import './index.scss'
-
 import { Outlet } from 'react-router-dom'
 import Sidebar from '../Sidebar'
 
 const Layout = () => {
   return (
-    <div className="App container">
+    <div className="container">
       <Sidebar />
-      <div className="page ms-24">
-        <span className="tags top-tags-html">&lt;/html&gt;</span>
+      <div className="ms-24">
+        <span
+          className="
+	text-primary
+	opacity-60
+	absolute
+	top-[16px]
+	left-[120px]
+	text-4xl
+	font-la-belle-aurore"
+        >
+          &lt;/html&gt;
+        </span>
         <br />
-        <span className="tags top-tags">&lt;body&gt;</span>
+        <span
+          className="
+	text-primary
+	opacity-60
+	absolute
+	top-[42px]
+	left-[138px]
+	text-4xl
+	font-la-belle-aurore"
+        >
+          &lt;body&gt;
+        </span>
         <Outlet />
-        <span className="tags bottom-tags">&lt;/body&gt;</span>
+        <span
+          className="
+	text-primary
+	opacity-60
+	absolute
+	bottom-[35px]
+	left-[138px]
+	text-4xl
+	font-la-belle-aurore"
+        >
+          &lt;/body&gt;
+        </span>
         <br />
-        <span className="tags bottom-tags-html">&lt;/html&gt;</span>
+        <span
+          className="
+	text-primary
+	opacity-60
+	absolute
+	bottom-[8px]
+	left-[120px]
+	text-4xl
+	font-la-belle-aurore"
+        >
+          &lt;/html&gt;
+        </span>
       </div>
     </div>
   )

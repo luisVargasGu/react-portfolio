@@ -3,6 +3,14 @@ export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        white: '#fff',
+        primary: {
+          light: '#fff',
+          DEFAULT: '#ffd700',
+          dark: '#000000',
+        },
+      },
       fontFamily: {
         coolvetica: ['Coolvetica', 'sans-serif'],
         'la-belle-aurore': ['La Belle Aurore', 'cursive'],
