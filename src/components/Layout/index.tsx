@@ -5,7 +5,7 @@ import Sidebar from '../Sidebar'
 
 const Layout = () => {
   return (
-    <div className="App">
+    <div className="App container">
       <Sidebar />
       <div className="page ms-24">
         <span className="tags top-tags-html">&lt;/html&gt;</span>
