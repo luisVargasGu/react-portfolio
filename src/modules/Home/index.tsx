@@ -1,5 +1,5 @@
+import logoTitle from '@/assets/images/logo-new-l.svg'
 import { Link } from 'react-router-dom'
-import logoTitle from '../../assets/images/logo-s.png'
 import Logo from './Logo'
 
 const Home = () => {
@@ -20,12 +20,13 @@ const Home = () => {
           >
             Hi, <br />
             <span className="inline-flex items-center">
-              I'm Lui
+              I'm
               <img
                 src={logoTitle}
                 alt="developer"
-                className="ml-1 w-8 opacity-0 animate-rotateIn delay-1400ms"
+                className="ml-1 w-16 opacity-0 animate-rotateIn delay-1400"
               />
+              uis
             </span>
           </span>
           <br />

@@ -1,3 +1,5 @@
+import LogoS from '@/assets/images/logo-new-l.svg'
+import LogoSubstitle from '@/assets/images/logo_sub.png'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -5,8 +7,6 @@ import { updateUserAvatar } from '@services/images'
 import useIsAuthenticated from 'react-auth-kit/hooks/useIsAuthenticated'
 import useSignOut from 'react-auth-kit/hooks/useSignOut'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import LogoS from '../../assets/images/logo-s.png'
-import LogoSubstitle from '../../assets/images/logo_sub.png'
 import ChannelList from './ChannelList'
 import NavBar from './Navbar'
 import './index.scss'
@@ -29,7 +29,7 @@ const Sidebar = () => {
         <img
           src={LogoS}
           alt="logo"
-          className="block mx-auto w-12 h-auto mb-2"
+          className="block mx-auto w-16 h-auto mb-2"
         />
         <img
           src={LogoSubstitle}
