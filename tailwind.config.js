@@ -34,7 +34,7 @@ export default {
       },
       animation: {
         rotateIn: 'rotateIn 1s linear both',
-        fadeIn: 'fadeIn 1s backwards',
+        fadeIn: 'fadeIn 1.2s ease-in-out forwards',
       },
       keyframes: {
         rotateIn: {
