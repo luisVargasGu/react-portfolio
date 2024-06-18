@@ -3,7 +3,7 @@ import Sidebar from '../Sidebar'
 
 const Layout = () => {
   return (
-    <div className="container">
+    <div className="m-auto">
       <Sidebar />
       <div className="ms-24">
         <span
