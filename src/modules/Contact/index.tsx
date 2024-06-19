@@ -36,64 +36,182 @@ const Contact: React.FC = () => {
         }
       )
   }
-
   return (
-    <div className="container flex m-auto contact-page">
-      <div className="text-zone">
-        <h1>Contact Me</h1>
-        <p>
+    <div className="flex m-auto contact-page">
+      <div className="text-zone m-auto ml-[15%] me-0 w-[35%] flex flex-col items-center justify-center max-h-[90%]">
+        <h1 className="text-[53px] font-coolvetica text-primary font-normal mt-0 relative mb-1.5">
+          Contact Me
+        </h1>
+        <p className="text-[16px] leading-[2] text-white font-sans max-w-fit animate-pulseOnce">
           I am interested in all things coding related - especially
           architectural design, web development, and data science. If you have
           any questions or would like to work together, don't hesitate to reach
           out!
         </p>
-        <div className="contact-form">
+        <div className="contact-form w-full mt-5">
           <form ref={form} onSubmit={sendEmail}>
-            <ul>
-              <li className="half">
+            <ul className="p-0 m-0">
+              <li
+                className="half
+	      w-[49%]
+	      ml-[2%]
+	      float-left
+	      clear-none
+	      mb-2.5
+	      opacity-0
+	      overflow-hidden
+	      relative
+	      animate-fadeInUp
+	      animation-delay-[2s]
+	      animation-fill-mode-forwards"
+              >
                 <input
                   type="text"
                   name="name"
                   placeholder="Name"
                   required
+                  className="w-full
+		  border-0
+		  bg-[#115173]
+		  h-[50px]
+		  text-[16px]
+		  text-white
+		  p-5
+		  box-border"
                 ></input>
               </li>
-              <li className="half">
+              <li
+                className="half
+	      w-[49%]
+	      ml-[2%]
+	      float-left
+	      clear-none
+	      mb-2.5
+	      opacity-0
+	      overflow-hidden
+	      relative
+	      animate-fadeInUp
+	      animation-delay-[2s]
+	      animation-fill-mode-forwards"
+              >
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   required
+                  className="w-full
+		  border-0
+		  bg-[#115173]
+		  h-[50px]
+		  text-[16px]
+		  text-white
+		  p-5
+		  box-border"
                 ></input>
               </li>
-              <li>
+              <li
+                className="mb-2.5
+	      opacity-0
+	      overflow-hidden
+	      relative
+	      animate-fadeInUp
+	      animation-delay-[2s]
+	      animation-fill-mode-forwards"
+              >
                 <input
                   type="text"
                   name="subject"
                   placeholder="Subject"
                   required
+                  className="w-full
+		  border-0
+		  bg-[#115173]
+		  h-[50px]
+		  text-[16px]
+		  text-white
+		  p-5
+		  box-border"
                 ></input>
               </li>
-              <li>
+              <li
+                className="mb-2.5
+	      opacity-0
+	      overflow-hidden
+	      relative
+	      animate-fadeInUp
+	      animation-delay-[2s]
+	      animation-fill-mode-forwards"
+              >
                 <textarea
                   name="message"
                   placeholder="Message"
                   required
+                  className="w-full
+		  border-0
+		  bg-[#115173]
+		  text-[16px]
+		  text-white
+		  p-8
+		  box-border
+		  min-h-[150px]"
                 ></textarea>
               </li>
-              <li>
+              <li
+                className="float-right
+	      mb-2.5
+	      opacity-0
+	      overflow-hidden
+	      relative
+	      animate-fadeInUp
+	      animation-delay-[2s]
+	      animation-fill-mode-forwards"
+              >
                 <input
                   type="submit"
                   value="SEND"
-                  className="flat-button"
+                  className="
+		  bg-transparent
+		  text-primary
+		  text-2xl
+		  font-normal
+		  tracking-wider
+		  font-sans
+		  no-underline
+		  py-4
+		  px-8
+		  border
+		  border-primary
+		  mt-6
+		  "
                 ></input>
               </li>
             </ul>
           </form>
         </div>
       </div>
-      <div className="map-wrap">
-        <div className="info-map">
+      <div
+        className="map-wrap
+      bg-[rgba(8,253,216,0.1)]
+      float-right
+      w-[412px]
+      h-[312px]
+      mt-[6%]
+      m-auto"
+      >
+        <div
+          className="info-map
+	bg-black
+	z-[999999]
+	w-[70%]
+	h-[100px]
+	p-5
+	text-white
+	font-['Helvetica']
+	text-[16px]
+	animate-fadeIn
+	animation-delay-[1.5s]
+	animation-fill-mode-forwards"
+        >
           Luis Vargas,
           <br />
           Canada,
@@ -102,7 +220,18 @@ const Contact: React.FC = () => {
           <br />
           <br />
         </div>
-        <MapContainer center={position} zoom={13}>
+        <MapContainer
+          center={position}
+          zoom={13}
+          className="leaflet-container
+	  relative
+	  w-full
+	  h-full
+	  opacity-0
+	  animate-backInRight
+	  animation-delay-[1.2s]
+	  animation-fill-mode-forwards"
+        >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Marker position={position} icon={defaultIcon}></Marker>
         </MapContainer>
