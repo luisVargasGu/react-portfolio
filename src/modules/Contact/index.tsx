@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <div className="container contact-page">
+    <div className="container flex m-auto contact-page">
       <div className="text-zone">
         <h1>Contact Me</h1>
         <p>

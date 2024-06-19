@@ -34,7 +34,7 @@ const About = () => {
     return () => clearInterval(interval)
   })
   return (
-    <div className="about-container max-w-[800px] mx-auto p-8 opacity-0 animate-fadeIn">
+    <div className="about-container max-w-[800px] m-auto p-8 opacity-0 animate-fadeIn">
       <div className="carousel-container mt-24 flex items-center justify-between mt-5">
         <Carousel imgSrc={carouselImages[currentImageIndex]} />
         <div className="tech-stack-cube w-1/2 h-full overflow-hidden pt-[14%] absolute right-0 top-0">
