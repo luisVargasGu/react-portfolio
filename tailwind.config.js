@@ -35,6 +35,7 @@ export default {
       animation: {
         rotateIn: 'rotateIn 1s linear both',
         fadeIn: 'fadeIn 1.2s ease-in-out forwards',
+        pulseOnce: 'pulse 2s ease-in-out forwards',
       },
       keyframes: {
         rotateIn: {
@@ -44,6 +45,16 @@ export default {
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
+        },
+        pulseOnce: {
+          '0%, 100%': {
+            transform: 'scale(1)',
+            opacity: 1,
+          },
+          '50%': {
+            transform: 'scale(1.05)',
+            opacity: 0.5,
+          },
         },
       },
       animationDelay: {

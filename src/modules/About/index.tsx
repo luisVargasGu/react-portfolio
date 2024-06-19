@@ -145,13 +145,13 @@ const About = () => {
       </div>
       <div
         className="mt-20
-      text-white
-      grid
-      gap-y-6
-      font-sans
-      text-lg
-      leading-[1.5]
-      before:content-['<p>']
+        text-white
+        grid
+        gap-y-6
+        font-sans
+        text-lg
+        leading-[1.5]
+        before:content-['<p>']
 	before:font-la-belle-aurore
 	before:text-primary
 	before:text-4xl
@@ -159,7 +159,7 @@ const About = () => {
 	before:relative
 	before:top-[45px]
 	before:-left-[35px]
-      after:content-['</p>']
+        after:content-['</p>']
 	after:font-la-belle-aurore
 	after:text-primary
 	after:text-4xl
@@ -170,12 +170,12 @@ const About = () => {
       "
       >
         <h3 className="text-primary text-4xl text-center my-1">About me</h3>
-        <p className="mt-0 text-2xl animate-pulse delay-[200ms]">
+        <p className="mt-0 text-2xl animate-pulseOnce delay-[200ms]">
           Welcome to my portfolio! I'm a seasoned Full Stack Developer with 5-7
           years of experience, specializing in the front-end. Proficient in
           Java, Python, and Go. (Currently learning O🐫)
         </p>
-        <p className="mt-0 text-2xl animate-pulse delay-[400ms]">
+        <p className="mt-0 text-2xl animate-pulseOnce delay-[1400ms]">
           Beyond tech, I'm enthusiastic about exploring new places, fueling my
           creativity through travel. In my free time, I enjoy working on diverse
           side projects that allow me to stretch my skills and think outside the

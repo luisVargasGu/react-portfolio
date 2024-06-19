@@ -47,26 +47,6 @@
       }
     }
   }
-
-  .about-description {
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
-
-    p {
-      margin-top: 0;
-      animation: pulse 1s;
-
-      &:nth-of-type(1) {
-        animation-delay: 0.2s;
-      }
-
-      &:nth-of-type(2) {
-        animation-delay: 0.4s;
-      }
-    }
-  }
 }
 
 @keyframes fadeIn {
