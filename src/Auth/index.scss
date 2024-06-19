@@ -14,20 +14,10 @@
 
   .logo {
     position: absolute;
-    /* Add position absolute for logo */
     top: 10px;
-    /* Adjust top position */
     right: 10px;
-    /* Adjust right position */
     width: 50px;
-    /* Adjust width */
     height: auto;
-  }
-
-  h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
   }
 
   .auth-form {
@@ -48,14 +38,8 @@
   }
 
   .auth-button {
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 18px;
-    background-color: #ffd700;
     color: #022c43;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
@@ -67,7 +51,6 @@
     height: 2rem;
     padding: 10px;
     margin: 10px 0;
-    color: #022c43;
     border: none;
     cursor: pointer;
   }

@@ -36,7 +36,17 @@ const Auth = () => {
 
   return (
     <div className="auth-container">
-      <h1>Authentication</h1>
+      <h1
+        className={`
+	text-secondary
+	mb-6
+	text-4xl
+	font-bold
+	text-center
+      `}
+      >
+        Authentication
+      </h1>
       <form className="auth-form" onSubmit={handleLogin}>
         <input
           required
@@ -53,12 +63,26 @@ const Auth = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="submit" value="Login" className="auth-button" />
+        <input
+          type="submit"
+          value="Login"
+          className="
+	bg-primary
+	p-4
+	my-4
+	text-secondary
+	font-normal
+	text-2xl
+	rounded
+	cursor-pointer
+	hover:bg-primary-dark
+	"
+        />
       </form>
       <FontAwesomeIcon
         icon={faUserPlus}
         onClick={handleRegister}
-        className="logo register-icon register-button"
+        className="logo register-button hover:text-secondary-dark"
       />
     </div>
   )
