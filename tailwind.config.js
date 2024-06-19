@@ -6,19 +6,19 @@ export default {
       colors: {
         white: '#fff',
         primary: {
-          light: '#fff',
+          light: '#fcfcba',
           DEFAULT: '#F9F871',
-          dark: '#000000',
+          dark: '#f5f41e',
         },
         secondary: {
-          light: '#008283',
+          light: '#045581',
           DEFAULT: '#022C43',
-          dark: '#333',
+          dark: '#012132',
         },
         tertiary: {
-          light: '#FFA458',
+          light: '#edb963',
           DEFAULT: '#E69C24',
-          dark: '#000000',
+          dark: '#c07f16',
         },
       },
       content: {
