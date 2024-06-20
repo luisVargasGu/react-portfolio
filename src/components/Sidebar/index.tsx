@@ -44,7 +44,7 @@ const Sidebar = () => {
             <NavLink
               to="/playground"
               onClick={signOutFunc}
-              className="block bg-[#022c43] text-white p-2 rounded"
+              className="block bg-gray-800 text-white p-2 rounded"
             >
               <FontAwesomeIcon
                 icon={faRightFromBracket}

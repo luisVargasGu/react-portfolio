@@ -23,7 +23,8 @@ const ChannelList: React.FC<ChannelListProps> = ({
     fetchChannels()
   }, [fetchChannels])
 
-  const handleChannelClick = (channelId: string) => {
+  const handleChannelClick = (channelId: string | undefined) => {
+    if (!channelId) return
     dispatch(updateSelectedChannel(channelId))
     dispatch(updateSelectedRoom(null))
   }
@@ -70,8 +71,8 @@ const ChannelList: React.FC<ChannelListProps> = ({
             className={`mx-auto text-2xl font-bold
 	    p-2 rounded-full h-[51px] w-[51px] text-white text-center ${
         channels.selectedChannelId === channel.id
-          ? 'bg-tertiary hover:bg-tertiary-light'
-          : 'bg-gray-700 hover:bg-gray-600'
+          ? 'bg-gray-600'
+          : 'bg-gray-400 hover:bg-gray-600'
       }`}
             onClick={() => handleChannelClick(channel.id)}
           >

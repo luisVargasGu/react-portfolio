@@ -6,6 +6,11 @@ export interface Channel {
   name: string
 }
 
+export interface ChannelProps {
+	selectedChannel: string
+	selectedRoom: string
+}
+
 export interface ChannelListProps {
   channels: ChannelState
   fetchChannels: () => void

@@ -1,13 +1,13 @@
+import { ChannelProps, RootState } from '@/types'
 import Sidebar from '@components/Sidebar'
 import { connect } from 'react-redux'
 import RoomList from '../RoomList'
 import Chat from './Chat'
-import './index.scss'
 
-const Channel = ({ selectedChannel, selectedRoom }) => {
+const Channel: React.FC<ChannelProps> = ({ selectedChannel, selectedRoom }) => {
   return (
     <div className="channel">
-      <div className="page">
+      <div className="flex h-full">
         <Sidebar />
         {selectedChannel ? <RoomList /> : null}
         {selectedRoom ? <Chat /> : null}
@@ -16,9 +16,10 @@ const Channel = ({ selectedChannel, selectedRoom }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: RootState) => ({
   selectedChannel: state.channels.selectedChannelId,
   selectedRoom: state.rooms.selectedRoomId,
 })
 
-export default connect(mapStateToProps)(Channel)
+const connectedChannel = connect(mapStateToProps)(Channel)
+export default connectedChannel

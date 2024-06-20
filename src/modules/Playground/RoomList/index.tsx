@@ -48,32 +48,56 @@ const RoomList: React.FC<RoomListProps> = ({
     dispatch(createRoom({ name: roomName, channel_id: selectedChannel }))
     setShow(false)
   }
-
   return (
-    <div className={selectedChannel ? 'room-list' : 'd-none'}>
-      <button className="delete-button" onClick={() => handleDeleteChannel()}>
+    <div
+      className={
+        selectedChannel
+          ? 'room-list ml-24 bg-gray-800 p-2.5 flex flex-col rounded-lg w-62.5 text-white'
+          : 'hidden'
+      }
+    >
+      <button
+        className="bg-red-700 text-white border-none py-2 px-4 rounded cursor-pointer text-lg font-normal hover:bg-red-800"
+        onClick={() => handleDeleteChannel()}
+      >
         Delete Channel
       </button>
-      {rooms?.rooms.length !== 0 ? <div className="spacer"></div> : null}
-      <ul>
+      {rooms?.rooms.length !== 0 ? (
+        <div className="h-1 bg-[#666] my-2 mx-2.5"></div>
+      ) : null}
+      <ul className="list-none p-0 m-0">
         {rooms?.rooms?.map((room) => (
           <li
             key={room.id}
             onClick={() => handleRoomClick(room.id)}
-            className={`${rooms.selectedRoomId === room.id ? 'active room-item' : 'room-item'}`}
+            className={`${rooms.selectedRoomId === room.id ? 'bg-gray-600' : 'bg-gray-400'} flex
+	    items-center
+	    p-2.5
+	    mb-2
+	    rounded
+	    transition-colors
+	    cursor-pointer
+	    hover:bg-gray-600`}
           >
-            <div className="room-icon">{room.avatar}</div>
-            <span className="room-label">{room.name}</span>
+            <div className="w-8 h-8 bg-secondary-light rounded-full flex items-center justify-center text-lg text-white mr-2.5">
+              {room.avatar}
+            </div>
+            <span className="text-lg font-normal text-white overflow-hidden text-ellipsis whitespace-nowrap">
+              {room.name}
+            </span>
             <FontAwesomeIcon
               icon={faTrash}
-              className="delete-icon"
+              className="ml-auto text-lg text-red-700 cursor-pointer hover:text-red-800"
               onClick={() => handleDeleteRoom(room.id)}
             />
           </li>
         ))}
       </ul>
-      <div className="add-room-container">
-        <button className="add-room-button" onClick={() => setShow(true)}>
+      <div className="mt-auto mb-2.5 flex">
+        <button
+          className="bg-gray-600 text-white border-none py-2 px-4 rounded font-normal cursor-pointer text-lg w-full hover:bg-gray-700"
+          onClick={() => setShow(true)}
+        >
           Add Room
         </button>
       </div>
@@ -84,8 +108,11 @@ const RoomList: React.FC<RoomListProps> = ({
           placeholder="Room Name"
           value={roomName}
           onChange={(e) => setRoomName(e.target.value)}
+          className="w-full border-0 bg-[#115173] h-12 text-lg text-white py-0 px-5 box-border"
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit} className="float-right">
+          Submit
+        </button>
       </Modal>
     </div>
   )
