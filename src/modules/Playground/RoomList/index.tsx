@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import './index.scss'
+import { AppDispatch, RoomListProps, RootState } from '@/types'
+import Modal from '@components/Modal'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { deleteChannel } from '@store/channels/channels.actions'
 import {
   createRoom,
   deleteRoom,
   fetchRooms,
   updateSelectedRoom,
 } from '@store/rooms/rooms.actions'
+import { useEffect, useState } from 'react'
 import { connect, useDispatch } from 'react-redux'
-import { deleteChannel } from '@store/channels/channels.actions'
-import Modal from '@components/Modal'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import './index.scss'
 
-const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
-  const dispatch = useDispatch()
+const RoomList: React.FC<RoomListProps> = ({
+  rooms,
+  selectedChannel,
+  fetchRooms,
+}) => {
+  const dispatch = useDispatch<AppDispatch>()
   const [show, setShow] = useState(false)
   const [roomName, setRoomName] = useState('')
 
@@ -23,7 +28,8 @@ const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
     }
   }, [fetchRooms, selectedChannel])
 
-  const handleRoomClick = (roomId) => {
+  const handleRoomClick = (roomId: string | undefined) => {
+    if (!roomId) return
     dispatch(updateSelectedRoom(roomId))
   }
 
@@ -32,7 +38,8 @@ const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
     dispatch(updateSelectedRoom(null))
   }
 
-  const handleDeleteRoom = (roomId) => {
+  const handleDeleteRoom = (roomId: string | undefined) => {
+    if (!roomId) return
     dispatch(deleteRoom(roomId))
   }
 
@@ -55,7 +62,7 @@ const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
             onClick={() => handleRoomClick(room.id)}
             className={`${rooms.selectedRoomId === room.id ? 'active room-item' : 'room-item'}`}
           >
-            <div className="room-icon">{room.icon}</div>
+            <div className="room-icon">{room.avatar}</div>
             <span className="room-label">{room.name}</span>
             <FontAwesomeIcon
               icon={faTrash}
@@ -84,7 +91,7 @@ const RoomList = ({ rooms, selectedChannel, fetchRooms }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: RootState) => ({
   rooms: state.rooms,
   selectedChannel: state.channels.selectedChannelId,
 })
@@ -93,4 +100,6 @@ const mapDispatchToProps = {
   fetchRooms,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RoomList)
+const ConnectedRoomList = connect(mapStateToProps, mapDispatchToProps)(RoomList)
+
+export default ConnectedRoomList

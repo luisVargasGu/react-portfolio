@@ -1,8 +1,8 @@
-import { ChannelState } from './storeTypes'
+import { ChannelState, RoomState } from './storeTypes'
 
 // Channel
 export interface Channel {
-  id: string
+  id?: string
   name: string
 }
 
@@ -13,9 +13,16 @@ export interface ChannelListProps {
 
 // Room
 export interface Room {
-  id: string
+  id?: string
   name: string
   channel_id: string
+  avatar?: string
+}
+
+export interface RoomListProps {
+	rooms: RoomState
+	selectedChannel: string
+	fetchRooms: (id: string) => void
 }
 
 // Message
