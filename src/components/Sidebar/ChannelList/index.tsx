@@ -34,7 +34,7 @@ const ChannelList: React.FC<ChannelListProps> = ({
 
   const handleSubmit = () => {
     setChannelName('')
-    dispatch(createChannel({ name: channelName, id: '' }))
+    dispatch(createChannel({ name: channelName }))
     setShow(false)
   }
 
