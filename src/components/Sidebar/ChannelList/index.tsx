@@ -92,11 +92,20 @@ const ChannelList: React.FC<ChannelListProps> = ({
             placeholder="Channel Name"
             value={channelName}
             onChange={(e) => setChannelName(e.target.value)}
-            className="w-full p-2 mb-4 border rounded-full"
+            className="w-full p-2 mb-4 border"
           />
           <button
             onClick={handleSubmit}
-            className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700"
+            className="
+		bg-primary
+		p-2
+		my-2
+		text-secondary
+		text-lg
+		rounded
+		cursor-pointer
+		hover:bg-primary-dark
+		    "
           >
             Submit
           </button>
