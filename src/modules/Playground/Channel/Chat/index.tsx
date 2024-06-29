@@ -1,21 +1,24 @@
-import './index.scss'
-import React, { useEffect, useRef, useState } from 'react'
-import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
+import { AppDispatch, Message as M, RootState, UserData } from '@/types'
 import { sendWebSocketMessage } from '@services/chat'
-import { useDispatch, useSelector } from 'react-redux'
 import { switchRoomAndFetchMessages } from '@store/messages/messages.actions'
+import { FormEvent, useEffect, useRef, useState } from 'react'
+import useAuthUser from 'react-auth-kit/hooks/useAuthUser'
+import { useDispatch, useSelector } from 'react-redux'
 import Message from './Message'
+import './index.scss'
 
 const Chat = () => {
   const [input, setInput] = useState('')
-  const dispatch = useDispatch()
-  const userData = useAuthUser()
-  const currentRoomId = useSelector((state) => state.rooms.selectedRoomId)
+  const dispatch = useDispatch<AppDispatch>()
+  const userData = useAuthUser<UserData>()
+  const currentRoomId = useSelector(
+    (state: RootState) => state.rooms.selectedRoomId
+  )
   const currentChannelId = useSelector(
-    (state) => state.channels.selectedChannelId
+    (state: RootState) => state.channels.selectedChannelId
   )
   const messages = useSelector(
-    (state) => state.messages.rooms[currentRoomId] || []
+    (state: RootState) => state.messages.rooms[currentRoomId] || []
   )
   const chatContainerRef = useRef(null)
 
@@ -25,13 +28,13 @@ const Chat = () => {
     }
   }, [currentRoomId, currentChannelId, dispatch])
 
-  const sendMessage = (e) => {
+  const sendMessage = (e: FormEvent) => {
     e.preventDefault()
     if (input.trim() === '') return
     const newMessage = {
       id: messages.length + 1,
       content: input,
-      sender_id: userData.userID,
+      sender_id: userData?.user_id,
       room_id: currentRoomId,
       timestamp: new Date().toISOString(),
     }
@@ -44,7 +47,7 @@ const Chat = () => {
     <div className="chat">
       <h1>Chat</h1>
       <div className="chat-box" ref={chatContainerRef}>
-        {messages.map((message) => (
+        {messages.map((message: M) => (
           <Message
             message={message}
             key={message.id}
