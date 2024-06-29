@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
+
 html {
 	font-size: 62.5%;
 	height: 100%;
@@ -13,10 +23,10 @@ body {
 	width: 100%;
 	margin: 0;
 	font:
-	300 11px/1.4 'Helvetica Neue',
-	Helvetica,
-	Arial,
-	sans-serif;
+		300 11px/1.4 'Helvetica Neue',
+		Helvetica,
+		Arial,
+		sans-serif;
 	color: #444;
 	background: #022c43;
 	overflow: hidden;
