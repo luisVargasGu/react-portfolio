@@ -10,6 +10,7 @@ import Contact from './modules/Contact'
 import Home from './modules/Home'
 import Playground from './modules/Playground'
 import Channel from './modules/Playground/Channel'
+import Portfolio from './modules/Portfolio'
 
 const AppRoutes = () => {
   const routes = [
@@ -18,6 +19,7 @@ const AppRoutes = () => {
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
+        { path: 'portfolio', element: <Portfolio /> },
         { path: 'about', element: <About /> },
         { path: 'contact', element: <Contact /> },
         {

@@ -1,4 +1,5 @@
 import {
+  faBriefcase,
   faEnvelope,
   faHome,
   faMicrochip,
@@ -60,6 +61,45 @@ const NavBar = () => {
       >
         <FontAwesomeIcon icon={faHome} />
         <span className="sr-only">Home</span>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          `block
+      text-4xl
+      text-gray-500
+      leading-[51px]
+      h-[51px]
+      relative
+      hover:text-primary
+      hover:bg-black
+      transition-all
+      ease-out
+      duration-300
+      after:content-[attr(data-content)]
+      after:text-base
+      after:tracking-wide
+      after:absolute
+      after:align-center
+      after:-left-6
+      after:bottom-8
+      after:w-full
+      after:transition-all
+      after:ease-out
+      after:duration-300
+      after:opacity-0
+      after:hover:opacity-100
+      hover:text-primary
+      ${
+        isActive
+          ? 'text-primary'
+          : 'text-gray-500 hover:text-primary hover:bg-black hover:after:opacity-100'
+      }`
+        }
+        to="/portfolio"
+        data-content="PORTFOLIO"
+      >
+        <FontAwesomeIcon icon={faBriefcase} />
+        <span className="sr-only">Portfolio</span>
       </NavLink>
       <NavLink
         className={({ isActive }) => `

@@ -79,3 +79,13 @@ export interface UserData {
 	user_id: string
 	avatar: string
 }
+
+// Post
+export interface PostProps {
+	title: string
+	subtitle?: string
+	imageUrl: string
+	description: string
+	projectLink?: string
+	codeLink?: string
+}
