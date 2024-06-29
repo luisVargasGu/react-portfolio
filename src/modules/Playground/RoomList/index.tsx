@@ -137,30 +137,31 @@ const RoomList: React.FC<RoomListProps> = ({
         </button>
       </div>
       <Modal title="Create Room" show={show} handleClose={() => setShow(false)}>
-        <label className="font-normal">Room Name</label>
-        <input
-          type="text"
-          placeholder="Room Name"
-          value={roomName}
-          onChange={(e) => setRoomName(e.target.value)}
-          className="w-full border-0 h-12 text-lg py-0 px-5 box-border"
-        />
-        <button
-          onClick={handleSubmit}
-          className="
-	bg-primary
-	p-2
-	my-2
-	text-secondary
-	font-normal
-	text-lg
-	rounded
-	cursor-pointer
-	hover:bg-primary-dark
-	"
-        >
-          Submit
-        </button>
+        <div className="p-4">
+          <label className="block mb-2">Room Name</label>
+          <input
+            type="text"
+            placeholder="Room Name"
+            value={roomName}
+            onChange={(e) => setRoomName(e.target.value)}
+            className="w-full border p-2 mb-4"
+          />
+          <button
+            onClick={handleSubmit}
+            className="
+		bg-primary
+		p-2
+		my-2
+		text-secondary
+		text-lg
+		rounded
+		cursor-pointer
+		hover:bg-primary-dark
+		"
+          >
+            Submit
+          </button>
+        </div>
       </Modal>
     </div>
   )
