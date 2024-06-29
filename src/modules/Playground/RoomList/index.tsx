@@ -11,7 +11,6 @@ import {
 } from '@store/rooms/rooms.actions'
 import { useEffect, useState } from 'react'
 import { connect, useDispatch } from 'react-redux'
-import './index.scss'
 
 const RoomList: React.FC<RoomListProps> = ({
   rooms,
@@ -52,12 +51,21 @@ const RoomList: React.FC<RoomListProps> = ({
     <div
       className={
         selectedChannel
-          ? 'room-list ml-24 bg-gray-800 p-2.5 flex flex-col rounded-lg w-62.5 text-white'
+          ? 'ml-24 bg-gray-800 p-2.5 flex flex-col rounded-lg w-full text-white'
           : 'hidden'
       }
     >
       <button
-        className="bg-red-700 text-white border-none py-2 px-4 rounded cursor-pointer text-lg font-normal hover:bg-red-800"
+        className="bg-red-700
+	text-white
+	border-none
+	py-2
+	px-4
+	rounded
+	cursor-pointer
+	text-lg
+	font-normal
+	hover:bg-red-800"
         onClick={() => handleDeleteChannel()}
       >
         Delete Channel
@@ -79,10 +87,28 @@ const RoomList: React.FC<RoomListProps> = ({
 	    cursor-pointer
 	    hover:bg-gray-600`}
           >
-            <div className="w-8 h-8 bg-secondary-light rounded-full flex items-center justify-center text-lg text-white mr-2.5">
+            <div
+              className="w-8
+	    h-8
+	    bg-secondary-light
+	    rounded-full
+	    flex
+	    items-center
+	    justify-center
+	    text-lg
+	    text-white
+	    mr-2.5"
+            >
               {room.avatar}
             </div>
-            <span className="text-lg font-normal text-white overflow-hidden text-ellipsis whitespace-nowrap">
+            <span
+              className="text-lg
+	    font-normal
+	    text-white
+	    overflow-hidden
+	    text-ellipsis
+	    whitespace-nowrap"
+            >
               {room.name}
             </span>
             <FontAwesomeIcon
@@ -95,22 +121,44 @@ const RoomList: React.FC<RoomListProps> = ({
       </ul>
       <div className="mt-auto mb-2.5 flex">
         <button
-          className="bg-gray-600 text-white border-none py-2 px-4 rounded font-normal cursor-pointer text-lg w-full hover:bg-gray-700"
+          className="bg-gray-600
+	  text-white
+	  border-none
+	  py-2
+	  px-4
+	  rounded
+	  font-normal
+	  cursor-pointer
+	  text-lg
+	  w-full hover:bg-gray-700"
           onClick={() => setShow(true)}
         >
           Add Room
         </button>
       </div>
       <Modal title="Create Room" show={show} handleClose={() => setShow(false)}>
-        <label>Room Name</label>
+        <label className="font-normal">Room Name</label>
         <input
           type="text"
           placeholder="Room Name"
           value={roomName}
           onChange={(e) => setRoomName(e.target.value)}
-          className="w-full border-0 bg-[#115173] h-12 text-lg text-white py-0 px-5 box-border"
+          className="w-full border-0 h-12 text-lg py-0 px-5 box-border"
         />
-        <button onClick={handleSubmit} className="float-right">
+        <button
+          onClick={handleSubmit}
+          className="
+	bg-primary
+	p-2
+	my-2
+	text-secondary
+	font-normal
+	text-lg
+	rounded
+	cursor-pointer
+	hover:bg-primary-dark
+	"
+        >
           Submit
         </button>
       </Modal>
