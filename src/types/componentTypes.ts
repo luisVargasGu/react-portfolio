@@ -32,7 +32,7 @@ export interface RoomListProps {
 
 // Message
 export interface MessageProps {
-	root: HTMLElement
+	root: HTMLElement | null
 	message: Message
 }
 

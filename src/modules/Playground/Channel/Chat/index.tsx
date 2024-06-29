@@ -46,7 +46,7 @@ const Chat = () => {
     <div className="m-auto w-3/5 p-5 bg-gray-100 rounded-lg shadow-lg">
       <h1 className="text-2xl font-bold mb-5">Chat</h1>
       <div
-        className="bg-white rounded-lg p-3 overflow-y-auto max-h-45"
+        className="bg-white rounded-lg p-3 overflow-y-auto max-h-[420px]"
         ref={chatContainerRef}
       >
         {messages.map((message: M) => (
