@@ -21,6 +21,9 @@ export default {
           dark: '#c07f16',
         },
       },
+      height: {
+        fit: 'fit-content',
+      },
       content: {
         home: '"HOME"',
         about: '"ABOUT"',
