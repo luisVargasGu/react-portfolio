@@ -51,7 +51,7 @@ const RoomList: React.FC<RoomListProps> = ({
     <div
       className={
         selectedChannel
-          ? 'ml-24 bg-gray-800 p-2.5 flex flex-col rounded-lg w-full text-white'
+          ? 'ml-24 bg-gray-800 p-2.5 flex flex-col rounded-lg w-80 text-white'
           : 'hidden'
       }
     >

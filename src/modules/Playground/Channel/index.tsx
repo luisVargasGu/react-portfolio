@@ -6,12 +6,10 @@ import Chat from './Chat'
 
 const Channel: React.FC<ChannelProps> = ({ selectedChannel, selectedRoom }) => {
   return (
-    <div className="channel">
-      <div className="flex h-full">
-        <Sidebar />
-        {selectedChannel ? <RoomList /> : null}
-        {selectedRoom ? <Chat /> : null}
-      </div>
+    <div className="flex h-full w-full">
+      <Sidebar />
+      {selectedChannel ? <RoomList /> : null}
+      {selectedRoom ? <Chat /> : null}
     </div>
   )
 }
