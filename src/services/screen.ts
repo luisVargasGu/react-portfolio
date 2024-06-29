@@ -13,7 +13,7 @@ const useMessageObserver = (message, root, threshold = 0.1) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && user.userID !== message.sender_id) {
+          if (entry.isIntersecting && user.user_id !== message.sender_id) {
             markMessageAsSeen(message.id)
             observer.unobserve(entry.target)
           }
@@ -36,7 +36,7 @@ const useMessageObserver = (message, root, threshold = 0.1) => {
         observer.disconnect()
       }
     }
-  }, [message, root, threshold, user.userID])
+  }, [message, root, threshold, user.user_id])
 
   return messageRef
 }

@@ -68,3 +68,9 @@ export interface ErrorBoundaryState {
 export interface CarouselProps {
   imgSrc: string
 }
+
+// User
+export interface UserData {
+  user_id: string
+  avatar: string
+}

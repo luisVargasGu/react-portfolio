@@ -24,7 +24,7 @@ const Auth = () => {
           token: getCookie('jwt_token'),
         },
         // TODO: configure refresh
-        userState: { email, userID: res.user_id, avatar: res.avatar },
+        userState: { email, user_id: res.user_id, avatar: res.avatar },
       })
       navigate('/playground/channel')
     })
